@@ -5,6 +5,8 @@
       "@root/*": ["./*"],
       "@app/*": ["./app/*"],
       "@components/*": ["./components/*"],
+      "@constants/*": ["./app/constants/*"],
+      "@public/*": ["./public/*"],
       "@shared/*": ["./shared/*"],
       "@styles/*": ["./styles/*"]
     }
