@@ -7,9 +7,11 @@ interface IMainHeadProps {
 }
 
 const MainHead: NextPage<IMainHeadProps> = ({ title, description }) => {
+  const fullTitle = `${title} - Top Games Hub`
+
   return (
     <Head>
-      <title>{title} - Top Games Hub</title>
+      <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <link rel="icon" href="/favicon.png" />
     </Head>
