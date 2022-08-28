@@ -4,11 +4,15 @@
     "paths": {
       "@root/*": ["./*"],
       "@app/*": ["./app/*"],
+      "@appTypes/*": ["./app/types/*"],
       "@components/*": ["./components/*"],
       "@constants/*": ["./app/constants/*"],
+      "@hooks/*": ["./app/hooks/*"],
       "@public/*": ["./public/*"],
+      "@services/*": ["./app/services/*"],
       "@shared/*": ["./shared/*"],
-      "@styles/*": ["./styles/*"]
+      "@styles/*": ["./styles/*"],
+      "@utils/*": ["./app/utils/*"]
     }
   }
 }
