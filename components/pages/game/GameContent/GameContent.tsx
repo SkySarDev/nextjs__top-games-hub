@@ -4,39 +4,23 @@ import styled from 'styled-components'
 import { IGame } from '@appTypes/gamePage.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentMain } from '@components/content'
-import { GenresList, MetacriticScore } from '@components/shared'
 import {
   GameInfo,
   GameDescription,
   GameScreenshots,
+  GameInfoHeaderGrid,
 } from '@components/pages/game'
 
 interface IProps {
   gameData: IGame
 }
 
-const Wrapper = styled.div`
-  font-size: 16px;
-  line-height: 150%;
-
-  & > div:not(:last-child) {
-    margin-bottom: 20px;
-  }
-`
-const TopGrid = styled.div`
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 30px;
-  height: 35px;
-  margin-bottom: 20px;
-  padding: 0 5px;
-`
-
 const GameContent: FC<IProps> = ({
   gameData: {
     name,
     released,
     website,
+    playtime,
     genres,
     platforms,
     developers,
@@ -56,27 +40,24 @@ const GameContent: FC<IProps> = ({
 
       <ContentMain title={name}>
         <Wrapper>
-          <TopGrid>
-            {!!genres.length && (
-              <GenresList genresList={genres} maxWidth={900} />
-            )}
-            {metacritic && (
-              <MetacriticScore score={metacritic} size={30} fontSize={18} />
-            )}
-          </TopGrid>
-
-          <GameDescription description={description} />
-
-          <GameInfo
+          <GameInfoHeaderGrid
             released={released}
             website={website}
+            metacritic={metacritic}
             platforms={platforms}
+          />
+
+          <GameInfo
+            playtime={playtime}
             developers={developers}
             publishers={publishers}
+            genres={genres}
             tags={tags}
           />
 
-          {!!screenshots.length && (
+          <GameDescription description={description} />
+
+          {!!screenshots?.length && (
             <GameScreenshots screenshots={screenshots} gameName={name} />
           )}
         </Wrapper>
@@ -86,3 +67,12 @@ const GameContent: FC<IProps> = ({
 }
 
 export default GameContent
+
+const Wrapper = styled.div`
+  font-size: 16px;
+  line-height: 150%;
+
+  & > div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+`

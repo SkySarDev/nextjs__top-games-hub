@@ -11,6 +11,7 @@ export interface IGame {
   name: string
   description: string
   description_raw: string
+  playtime: number
   released: string
   background_image: string | null
   website: string
