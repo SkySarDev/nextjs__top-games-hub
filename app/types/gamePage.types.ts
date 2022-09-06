@@ -5,7 +5,7 @@ export interface IGameScreenshot {
   image: string
 }
 
-export interface IGame {
+export interface IGameDto {
   id: number
   slug: string
   name: string
