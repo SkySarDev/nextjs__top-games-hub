@@ -7,16 +7,10 @@ export interface IMainTitleProps {
 
 export const MainTitle = styled.h2<IMainTitleProps>`
   font-size: 22px;
+  line-height: 150%;
   font-weight: bold;
-  margin-top: ${({ top }) => top || 0}px;
-  margin-bottom: ${({ bottom }) => bottom || 0}px;
-`
-
-export const ContentSection = styled.div`
-  border: 1px solid #59584c;
-  border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.35);
-  padding: 15px 20px;
+  margin-top: ${({ top = 0 }) => top}px;
+  margin-bottom: ${({ bottom = 0 }) => bottom}px;
 `
 
 export const CardAbsoluteDiv = styled.div`
