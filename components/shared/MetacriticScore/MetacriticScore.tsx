@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import { FC } from 'react'
 import styled from 'styled-components'
 
 interface IMetacriticScoreProps {
@@ -7,25 +7,7 @@ interface IMetacriticScoreProps {
   fontSize?: number
 }
 
-const Wrapper = styled.div<IMetacriticScoreProps>(
-  ({ score, size, fontSize }) => ({
-    display: 'grid',
-    justifyContent: 'center',
-    alignItems: 'center',
-    lineHeight: '100%',
-    width: size + 'px',
-    height: size + 'px',
-    borderRadius: '5px',
-    fontSize: fontSize + 'px',
-    fontWeight: 'bold',
-    color: '#faf8ea',
-    boxShadow: '0 0 2px 1px rgb(27 27 27 / 35%)',
-    backgroundColor:
-      score < 50 ? '#9f0000' : score < 75 ? '#9d7c08' : '#4f972c',
-  })
-)
-
-const MetacriticScore: NextPage<IMetacriticScoreProps> = ({
+const MetacriticScore: FC<IMetacriticScoreProps> = ({
   score,
   size = 25,
   fontSize = 14,
@@ -38,3 +20,25 @@ const MetacriticScore: NextPage<IMetacriticScoreProps> = ({
 }
 
 export default MetacriticScore
+
+const Wrapper = styled.div<Required<IMetacriticScoreProps>>(
+  ({ score, size, fontSize }) => ({
+    display: 'grid',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: size + 'px',
+    height: size + 'px',
+    borderRadius: '5px',
+    fontSize: fontSize + 'px',
+    lineHeight: '150%',
+    fontWeight: 'bold',
+    color: '#faf8ea',
+    boxShadow: '0 0 2px 1px rgb(27 27 27 / 35%)',
+    backgroundColor:
+      score < 50
+        ? 'rgba(159, 0, 0, 0.9)'
+        : score < 75
+        ? 'rgba(157, 124, 8, 0.9)'
+        : 'rgba(79, 151, 44, 0.9)',
+  })
+)

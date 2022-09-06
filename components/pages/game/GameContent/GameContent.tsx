@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 
-import { IGame } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamePage.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentMain } from '@components/content'
 import {
@@ -11,11 +11,11 @@ import {
   GameInfoHeaderGrid,
 } from '@components/pages/game'
 
-interface IProps {
-  gameData: IGame
+interface IGameContentProps {
+  gameData: IGameDto
 }
 
-const GameContent: FC<IProps> = ({
+const GameContent: FC<IGameContentProps> = ({
   gameData: {
     name,
     released,

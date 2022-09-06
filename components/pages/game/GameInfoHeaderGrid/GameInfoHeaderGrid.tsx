@@ -1,16 +1,15 @@
-import type { FC } from 'react'
-import React from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 import { CgCalendarDates, CgLink } from 'react-icons/cg'
 
-import { IGame } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamePage.types'
 import { Sticker, MetacriticScore } from '@components/shared'
 import { GameInfoPlatforms } from '@components/pages/game'
 
-interface IProps
-  extends Pick<IGame, 'released' | 'website' | 'metacritic' | 'platforms'> {}
+interface IGameInfoHeaderGridProps
+  extends Pick<IGameDto, 'released' | 'website' | 'metacritic' | 'platforms'> {}
 
-const GameInfoHeaderGrid: FC<IProps> = ({
+const GameInfoHeaderGrid: FC<IGameInfoHeaderGridProps> = ({
   released,
   website,
   platforms,
@@ -58,12 +57,12 @@ const GridItem = styled.div`
   display: flex;
   column-gap: 10px;
 
-  &:first-child a {
+  :first-child a {
     line-height: 0;
     color: #d5d0c8;
     transition: color 0.35s;
 
-    &:hover {
+    :hover {
       color: rgba(211, 203, 192, 0.6);
     }
   }

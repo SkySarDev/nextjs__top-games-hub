@@ -1,15 +1,38 @@
-import type { FC } from 'react'
+import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
 import { IGameScreenshot } from '@appTypes/gamePage.types'
-import { GameSectionTitle } from '@components/pages/game'
-import { ContentSection } from '@styles/components'
+import { ContentSection } from '@components/content'
 
-interface IProps {
+interface IGameScreenshotsProps {
   screenshots: IGameScreenshot[]
   gameName: string
 }
+
+const GameScreenshots: FC<IGameScreenshotsProps> = ({
+  screenshots,
+  gameName,
+}) => {
+  return (
+    <ContentSection title="Screenshots">
+      <Grid>
+        {screenshots.map((screenItem) => (
+          <ImageWrapper key={screenItem.id}>
+            <ScreenImg
+              src={screenItem.image}
+              width={333}
+              height={182}
+              alt={gameName}
+            />
+          </ImageWrapper>
+        ))}
+      </Grid>
+    </ContentSection>
+  )
+}
+
+export default GameScreenshots
 
 const Grid = styled.div`
   display: grid;
@@ -33,29 +56,7 @@ const ScreenImg = styled(Image)`
   transition: opacity 0.3s;
   object-fit: cover;
 
-  &:hover {
+  :hover {
     opacity: 1;
   }
 `
-
-const GameScreenshots: FC<IProps> = ({ screenshots, gameName }) => {
-  return (
-    <ContentSection>
-      <GameSectionTitle bottom={15}>Screenshots</GameSectionTitle>
-      <Grid>
-        {screenshots.map((screenItem) => (
-          <ImageWrapper key={screenItem.id}>
-            <ScreenImg
-              src={screenItem.image}
-              width={333}
-              height={182}
-              alt={gameName}
-            />
-          </ImageWrapper>
-        ))}
-      </Grid>
-    </ContentSection>
-  )
-}
-
-export default GameScreenshots

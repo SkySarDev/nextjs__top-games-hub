@@ -5,7 +5,6 @@ import GameInfoBlock from './GameInfoBlock/GameInfoBlock'
 import GameInfoHeaderGrid from './GameInfoHeaderGrid/GameInfoHeaderGrid'
 import GameInfoPlatforms from './GameInfoPlatforms/GameInfoPlatforms'
 import GameScreenshots from './GameScreenshots/GameScreenshots'
-import GameSectionTitle from './GameSectionTitle/GameSectionTitle'
 
 export {
   GameContent,
@@ -15,5 +14,4 @@ export {
   GameInfoHeaderGrid,
   GameInfoPlatforms,
   GameScreenshots,
-  GameSectionTitle,
 }

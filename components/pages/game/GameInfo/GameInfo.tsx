@@ -1,18 +1,18 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { IGame } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamePage.types'
 import { ROUTES } from '@constants/routes.constants'
-import { GameSectionTitle, GameInfoBlock } from '@components/pages/game'
-import { ContentSection } from '@styles/components'
+import { GameInfoBlock } from '@components/pages/game'
+import { ContentSection } from '@components/content'
 
-interface IProps
+interface IGameInfoProps
   extends Pick<
-    IGame,
+    IGameDto,
     'playtime' | 'developers' | 'publishers' | 'genres' | 'tags'
   > {}
 
-const GameInfo: FC<IProps> = ({
+const GameInfo: FC<IGameInfoProps> = ({
   playtime,
   developers,
   publishers,
@@ -22,9 +22,7 @@ const GameInfo: FC<IProps> = ({
   const { DEVELOPERS, PUBLISHERS, GENRES, TAGS } = ROUTES
 
   return (
-    <ContentSection>
-      <GameSectionTitle bottom={15}>Game info</GameSectionTitle>
-
+    <ContentSection title="Game info">
       <Grid>
         {!!playtime && (
           <GameInfoBlock
@@ -67,6 +65,7 @@ const Grid = styled.div`
   column-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   text-align: center;
+  word-wrap: break-word;
 `
 const Tags = styled.div`
   margin-top: 20px;

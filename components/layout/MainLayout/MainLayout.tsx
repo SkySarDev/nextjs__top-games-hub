@@ -29,7 +29,7 @@ const MainLayout: NextPage<IMainLayoutProps> = ({ children }) => {
     <Container>
       <Grid>
         <Sidebar />
-        {children}
+        <div>{children}</div>
       </Grid>
     </Container>
   )

@@ -1,6 +1,15 @@
-import type { NextPage } from 'next'
-import { ReactNode } from 'react'
+import { ReactNode, FC } from 'react'
 import styled from 'styled-components'
+
+interface IBlockWrapperProps {
+  children: ReactNode
+}
+
+const BlockWrapper: FC<IBlockWrapperProps> = ({ children }) => {
+  return <Wrapper>{children}</Wrapper>
+}
+
+export default BlockWrapper
 
 const Wrapper = styled.div`
   background: rgba(36, 38, 33, 0.8);
@@ -8,13 +17,3 @@ const Wrapper = styled.div`
   border-radius: 5px;
   padding: 20px;
 `
-
-interface IContentContainerProps {
-  children: ReactNode
-}
-
-const BlockWrapper: NextPage<IContentContainerProps> = ({ children }) => {
-  return <Wrapper>{children}</Wrapper>
-}
-
-export default BlockWrapper

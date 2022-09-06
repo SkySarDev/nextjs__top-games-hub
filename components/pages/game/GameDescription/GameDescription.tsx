@@ -1,16 +1,14 @@
 import type { FC } from 'react'
 
-import { GameSectionTitle } from '@components/pages/game'
-import { ContentSection } from '@styles/components'
+import { ContentSection } from '@components/content'
 
-interface IProps {
+interface IGameDescriptionProps {
   description: string
 }
 
-const GameDescription: FC<IProps> = ({ description }) => {
+const GameDescription: FC<IGameDescriptionProps> = ({ description }) => {
   return (
-    <ContentSection>
-      <GameSectionTitle bottom={15}>Description</GameSectionTitle>
+    <ContentSection title="Description">
       <div dangerouslySetInnerHTML={{ __html: description }} />
     </ContentSection>
   )
