@@ -13,6 +13,7 @@
     "axios": "^0.27.2",
     "next": "12.2.5",
     "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "18.7.6",
+    "@types/nprogress": "^0.2.0",
     "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "@types/styled-components": "^5.1.26",

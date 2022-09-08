@@ -6,6 +6,7 @@
       "@app/*": ["./app/*"],
       "@appTypes/*": ["./app/types/*"],
       "@components/*": ["./components/*"],
+      "@configs/*": ["./app/configs/*"],
       "@constants/*": ["./app/constants/*"],
       "@hooks/*": ["./app/hooks/*"],
       "@public/*": ["./public/*"],

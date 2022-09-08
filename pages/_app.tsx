@@ -7,6 +7,7 @@ import {
 } from '@tanstack/react-query'
 
 import { queryClientConfig } from '@configs/reactQuery.configs'
+import '@configs/nprogress.configs'
 import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import '@styles/globals.css'
