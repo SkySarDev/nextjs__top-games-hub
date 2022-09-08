@@ -2,14 +2,15 @@ import { FC } from 'react'
 
 import { IPlatformsDto } from '@appTypes/platformsPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain, ContentGrid } from '@components/content'
+import { ContentHeader, ContentMain } from '@components/content'
 import { CardCommon } from '@components/cards'
+import { ContentGrid } from '@styles/components/content.components'
 
-interface IProps {
+interface IPlatformsContentProps {
   platformsData: IPlatformsDto
 }
 
-const PlatformsContent: FC<IProps> = ({
+const PlatformsContent: FC<IPlatformsContentProps> = ({
   platformsData: { background_image, platforms },
 }) => {
   return (

@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import styled from 'styled-components'
 
 import { IGameDto } from '@appTypes/gamePage.types'
 import { MainHead } from '@components/layout'
@@ -10,6 +9,7 @@ import {
   GameScreenshots,
   GameInfoHeaderGrid,
 } from '@components/pages/game'
+import { ContentRows } from '@styles/components/content.components'
 
 interface IGameContentProps {
   gameData: IGameDto
@@ -39,7 +39,7 @@ const GameContent: FC<IGameContentProps> = ({
       <ContentHeader image={background_image} />
 
       <ContentMain title={name}>
-        <Wrapper>
+        <ContentRows>
           <GameInfoHeaderGrid
             released={released}
             website={website}
@@ -60,19 +60,10 @@ const GameContent: FC<IGameContentProps> = ({
           {!!screenshots?.length && (
             <GameScreenshots screenshots={screenshots} gameName={name} />
           )}
-        </Wrapper>
+        </ContentRows>
       </ContentMain>
     </div>
   )
 }
 
 export default GameContent
-
-const Wrapper = styled.div`
-  font-size: 16px;
-  line-height: 150%;
-
-  & > div:not(:last-child) {
-    margin-bottom: 20px;
-  }
-`

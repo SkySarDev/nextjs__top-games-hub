@@ -43,17 +43,14 @@ const Title = styled.h5`
   font-size: 18px;
 `
 const Body = styled.div`
-  margin-bottom: 10px;
-  color: #999999;
+  color: #999;
+
   a {
-    color: #999999;
+    color: #999;
     transition: color 0.3s;
     :hover {
       color: #e2e0d0;
     }
-  }
-  :last-child {
-    margin-bottom: 0;
   }
 `
 const ArrayItem = styled.span`

@@ -1,22 +1,17 @@
 import { FC } from 'react'
-import styled from 'styled-components'
 
 import { IPlatformDto } from '@appTypes/platformsPage.types'
 import { MainHead } from '@components/layout'
-import {
-  ContentHeader,
-  ContentMain,
-  ContentGrid,
-  ContentSection,
-} from '@components/content'
+import { ContentHeader, ContentMain, ContentSection } from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
+import { ContentGrid, ContentRows } from '@styles/components/content.components'
 
-interface IProps {
+interface IPlatformContentProps {
   platformData: IPlatformDto
 }
 
-const PlatformContent: FC<IProps> = ({
+const PlatformContent: FC<IPlatformContentProps> = ({
   platformData: {
     name,
     description,
@@ -33,7 +28,7 @@ const PlatformContent: FC<IProps> = ({
       <ContentHeader image={background_image} />
 
       <ContentMain title={title}>
-        <Wrapper>
+        <ContentRows>
           <ContentSection title="Description" titleAlign="left">
             <p>{description}</p>
           </ContentSection>
@@ -45,16 +40,10 @@ const PlatformContent: FC<IProps> = ({
               <CardGame data={gameItem} key={gameItem.name} />
             ))}
           </ContentGrid>
-        </Wrapper>
+        </ContentRows>
       </ContentMain>
     </>
   )
 }
 
 export default PlatformContent
-
-const Wrapper = styled.div`
-  & > div:not(:last-child) {
-    margin-bottom: 20px;
-  }
-`

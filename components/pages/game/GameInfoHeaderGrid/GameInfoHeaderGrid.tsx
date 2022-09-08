@@ -50,7 +50,6 @@ const MainGrid = styled.div`
   justify-content: space-between;
   grid-template-columns: repeat(2, max-content);
   height: 35px;
-  margin-bottom: 20px;
   padding: 0 5px;
 `
 const GridItem = styled.div`
