@@ -1,4 +1,5 @@
 import { IBaseDataBlock } from '@appTypes/base.types'
+import { ICardGame } from '@appTypes/cards.types'
 
 export interface IGameScreenshot {
   id: number
@@ -22,4 +23,10 @@ export interface IGameDto {
   publishers: IBaseDataBlock[]
   tags: IBaseDataBlock[]
   screenshots: IGameScreenshot[]
+}
+
+export interface IGamesDto {
+  background_image: string
+  games_count: number
+  games: ICardGame[]
 }

@@ -2,9 +2,9 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { CgCalendarDates, CgLink } from 'react-icons/cg'
 
-import { IGameDto } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamesPage.types'
 import { Sticker, MetacriticScore } from '@components/shared'
-import { GameInfoPlatforms } from '@components/pages/game'
+import { GameInfoPlatforms } from '@components/pages/games'
 
 interface IGameInfoHeaderGridProps
   extends Pick<IGameDto, 'released' | 'website' | 'metacritic' | 'platforms'> {}

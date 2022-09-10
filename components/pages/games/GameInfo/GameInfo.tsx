@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { IGameDto } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamesPage.types'
 import { ROUTES } from '@constants/routes.constants'
-import { GameInfoBlock } from '@components/pages/game'
+import { GameInfoBlock } from '@components/pages/games'
 import { ContentSection } from '@components/content'
 
 interface IGameInfoProps

@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { ContentError } from '@components/content'
-import { GameContent } from '@components/pages/game'
+import { GameContent } from '@components/pages/games'
 
 const GamePage: NextPage = () => {
   const { query } = useRouter()

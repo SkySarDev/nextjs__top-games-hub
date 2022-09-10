@@ -2,7 +2,7 @@ import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
-import { IGameScreenshot } from '@appTypes/gamePage.types'
+import { IGameScreenshot } from '@appTypes/gamesPage.types'
 import { ContentSection } from '@components/content'
 
 interface IGameScreenshotsProps {

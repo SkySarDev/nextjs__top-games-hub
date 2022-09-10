@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IGameDto } from '@appTypes/gamePage.types'
+import { IGameDto } from '@appTypes/gamesPage.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentMain } from '@components/content'
 import {
@@ -8,7 +8,7 @@ import {
   GameDescription,
   GameScreenshots,
   GameInfoHeaderGrid,
-} from '@components/pages/game'
+} from '@components/pages/games'
 import { ContentRows } from '@styles/components/content.components'
 
 interface IGameContentProps {
