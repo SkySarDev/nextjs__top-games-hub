@@ -1,6 +1,6 @@
 @import '../node_modules/normalize.css/normalize.css';
 
-@import url('https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Asul:wght@400;700&display=swap');
 
 * {
   padding: 0;
@@ -23,40 +23,6 @@ a:focus,
 a:active {
   outline: none;
 }
-
-nav,
-footer,
-header,
-aside {
-  display: block;
-}
-
-html,
-body {
-  height: 100%;
-  width: 100%;
-  font-size: 100%;
-  line-height: 1;
-  -ms-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-input,
-button,
-textarea {
-  font-family: inherit;
-}
-
-input::-ms-clear {
-  display: none;
-}
-button {
-  cursor: pointer;
-}
-button::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
 a,
 a:visited {
   text-decoration: none;
@@ -64,25 +30,11 @@ a:visited {
 a:hover {
   text-decoration: none;
 }
-ul li {
-  list-style: none;
-}
-img {
-  vertical-align: top;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-size: inherit;
-  font-weight: 400;
-}
 
 body {
-  font-family: 'Philosopher', sans-serif;
+  font-family: 'Asul', sans-serif;
+  font-size: 16px;
+  line-height: 130%;
   background-color: #1b1b1b;
-  color: #e2e0d0;
+  color: #d3cbc0;
 }

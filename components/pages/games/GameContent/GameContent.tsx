@@ -34,7 +34,7 @@ const GameContent: FC<IGameContentProps> = ({
   },
 }) => {
   return (
-    <div>
+    <>
       <MainHead title={name} description={description_raw} />
       <ContentHeader image={background_image} />
 
@@ -62,7 +62,7 @@ const GameContent: FC<IGameContentProps> = ({
           )}
         </ContentRows>
       </ContentMain>
-    </div>
+    </>
   )
 }
 

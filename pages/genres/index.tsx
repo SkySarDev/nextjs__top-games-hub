@@ -10,13 +10,15 @@ const Genres: NextPage = () => {
   const { data } = useQuery(['genres-page'], PagesServices.getGenres)
 
   // prettier-ignore
-  return <>
-    {data ? (
-      <GenresContent genresData={data} />
-    ) : (
-      <ContentError />
-    )}
-  </>
+  return (
+    <>
+      {data ? (
+        <GenresContent genresData={data} />
+      ) : (
+        <ContentError />
+      )}
+    </>
+  )
 }
 
 export default Genres
