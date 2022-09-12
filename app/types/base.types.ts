@@ -3,3 +3,8 @@ export interface IBaseDataBlock {
   name: string
   slug: string
 }
+
+export interface IBaseCommonItem extends IBaseDataBlock {
+  games_count: number
+  image_background: string
+}
