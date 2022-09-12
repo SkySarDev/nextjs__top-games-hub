@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   images: {
-    domains: ['media.rawg.io'],
+    domains: ['media.rawg.io', process.env.API_DOMAIN],
   },
 }
 

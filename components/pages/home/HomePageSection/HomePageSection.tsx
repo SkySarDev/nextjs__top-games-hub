@@ -29,7 +29,7 @@ const HomePageSection: FC<IHomePageSectionProps> = ({
 export default HomePageSection
 
 const Title = styled.h2`
-  margin: 0 0 10px 5px;
+  padding: 0 5px;
   font-size: 22px;
   line-height: 120%;
   font-weight: bold;
