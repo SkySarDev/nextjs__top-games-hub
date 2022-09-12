@@ -1,0 +1,27 @@
+.genresList {
+  display: flex;
+  column-gap: 5px;
+}
+
+.genreItem,
+.genreItemTrunc {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid #59584c;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+
+.genreItem a,
+.genreItemTrunc {
+  padding: 0.3em 0.5em;
+}
+
+.genreItem a {
+  display: inline-block;
+  transition: all 0.3s;
+  color: #e2e0d0;
+}
+
+.genreItem a:hover {
+  color: #999999;
+}
