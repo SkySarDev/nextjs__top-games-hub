@@ -2,7 +2,11 @@ import { FC } from 'react'
 
 import { ITagDto } from '@appTypes/tagsPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain, ContentSection } from '@components/content'
+import {
+  ContentHeader,
+  ContentWrapper,
+  ContentSection,
+} from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
 import { ContentGrid, ContentRows } from '@styles/components/content.components'
@@ -28,7 +32,7 @@ const TagContent: FC<ITagContentProps> = ({
       <MainHead title={title} description={description_raw} />
       <ContentHeader image={background_image} />
 
-      <ContentMain title={title}>
+      <ContentWrapper title={title}>
         <ContentRows>
           {description && (
             <ContentSection title="Description">
@@ -44,7 +48,7 @@ const TagContent: FC<ITagContentProps> = ({
             ))}
           </ContentGrid>
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

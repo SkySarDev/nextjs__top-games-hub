@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import { CardCommon } from '@components/cards'
 import { IGenresDto } from '@appTypes/genresPage.types'
 import { ContentGrid } from '@styles/components/content.components'
@@ -21,13 +21,13 @@ const GenresContent: FC<IGenresContentProps> = ({
 
       <ContentHeader image={background_image} />
 
-      <ContentMain title="Genres">
+      <ContentWrapper title="Genres">
         <ContentGrid>
           {genres.map((genre) => (
             <CardCommon data={genre} category="genres" key={genre.id} />
           ))}
         </ContentGrid>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

@@ -2,7 +2,11 @@ import { FC } from 'react'
 
 import { IPlatformDto } from '@appTypes/platformsPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain, ContentSection } from '@components/content'
+import {
+  ContentHeader,
+  ContentWrapper,
+  ContentSection,
+} from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
 import { ContentGrid, ContentRows } from '@styles/components/content.components'
@@ -27,7 +31,7 @@ const PlatformContent: FC<IPlatformContentProps> = ({
       <MainHead title={title} description={description} />
       <ContentHeader image={background_image} />
 
-      <ContentMain title={title}>
+      <ContentWrapper title={title}>
         <ContentRows>
           <ContentSection title="Description" titleAlign="left">
             <p>{description}</p>
@@ -41,7 +45,7 @@ const PlatformContent: FC<IPlatformContentProps> = ({
             ))}
           </ContentGrid>
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

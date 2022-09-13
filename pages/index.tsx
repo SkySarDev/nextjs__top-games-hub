@@ -8,7 +8,7 @@ import {
   CardCommonsListWithData,
   CardGamesListWithData,
 } from '@components/cards'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import { MainHead } from '@components/layout'
 import { HomePageSection } from '@components/pages/home'
 import { ContentRows } from '@styles/components/content.components'
@@ -25,7 +25,7 @@ const Home: NextPage = () => {
 
       <ContentHeader />
 
-      <ContentMain title="Home page">
+      <ContentWrapper title="Home page">
         <ContentRows>
           {data && (
             <>
@@ -53,7 +53,7 @@ const Home: NextPage = () => {
             </>
           )}
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

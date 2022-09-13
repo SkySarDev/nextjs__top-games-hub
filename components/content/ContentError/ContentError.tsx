@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 
 interface IContentErrorProps {
   statusText?: string
@@ -16,7 +16,7 @@ const ContentError: FC<IContentErrorProps> = ({ statusText }) => {
       <MainHead title="Error" description="Error" />
       <ContentHeader />
 
-      <ContentMain title="Error">{message}</ContentMain>
+      <ContentWrapper title="Error">{message}</ContentWrapper>
     </>
   )
 }

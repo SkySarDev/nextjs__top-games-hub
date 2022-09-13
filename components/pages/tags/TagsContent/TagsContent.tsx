@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { ITagsDto } from '@appTypes/tagsPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import { CardCommon } from '@components/cards'
 import { ContentGrid } from '@styles/components/content.components'
 
@@ -22,13 +22,13 @@ const TagsContent: FC<ITagsContentProps> = ({
 
       <ContentHeader image={background_image} />
 
-      <ContentMain title="Tags">
+      <ContentWrapper title="Tags">
         <ContentGrid>
           {tags.map((tag) => (
             <CardCommon data={tag} category="tags" key={tag.id} />
           ))}
         </ContentGrid>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

@@ -2,7 +2,11 @@ import { FC } from 'react'
 
 import { IGenreDto } from '@appTypes/genresPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain, ContentSection } from '@components/content'
+import {
+  ContentHeader,
+  ContentWrapper,
+  ContentSection,
+} from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
 import { ContentGrid, ContentRows } from '@styles/components/content.components'
@@ -28,7 +32,7 @@ const GenreContent: FC<IGenreContentProps> = ({
       <MainHead title={title} description={description_raw} />
       <ContentHeader image={background_image} />
 
-      <ContentMain title={title}>
+      <ContentWrapper title={title}>
         <ContentRows>
           {description && (
             <ContentSection title="Description">
@@ -44,7 +48,7 @@ const GenreContent: FC<IGenreContentProps> = ({
             ))}
           </ContentGrid>
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

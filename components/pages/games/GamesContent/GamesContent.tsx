@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { IGamesDto } from '@appTypes/gamesPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
 import { ContentGrid, ContentRows } from '@styles/components/content.components'
@@ -23,7 +23,7 @@ const GamesContent: FC<IGamesContentProps> = ({
 
       <ContentHeader image={background_image} />
 
-      <ContentMain title="Games">
+      <ContentWrapper title="Games">
         <ContentRows>
           <FilterBlock gamesCount={games_count} />
 
@@ -33,7 +33,7 @@ const GamesContent: FC<IGamesContentProps> = ({
             ))}
           </ContentGrid>
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

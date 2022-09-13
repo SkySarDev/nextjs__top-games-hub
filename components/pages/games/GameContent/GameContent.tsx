@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { IGameDto } from '@appTypes/gamesPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import {
   GameInfo,
   GameDescription,
@@ -38,7 +38,7 @@ const GameContent: FC<IGameContentProps> = ({
       <MainHead title={name} description={description_raw} />
       <ContentHeader image={background_image} />
 
-      <ContentMain title={name}>
+      <ContentWrapper title={name}>
         <ContentRows>
           <GameInfoHeaderGrid
             released={released}
@@ -61,7 +61,7 @@ const GameContent: FC<IGameContentProps> = ({
             <GameScreenshots screenshots={screenshots} gameName={name} />
           )}
         </ContentRows>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }

@@ -3,12 +3,12 @@ import styled from 'styled-components'
 
 import { BlockWrapper } from '@components/shared'
 
-interface IContentMainProps {
+interface IContentWrapperProps {
   title: string
   children: ReactNode
 }
 
-const ContentMain: FC<IContentMainProps> = ({ title, children }) => {
+const ContentWrapper: FC<IContentWrapperProps> = ({ title, children }) => {
   return (
     <Wrapper>
       <Title>{title}</Title>
@@ -17,7 +17,7 @@ const ContentMain: FC<IContentMainProps> = ({ title, children }) => {
   )
 }
 
-export default ContentMain
+export default ContentWrapper
 
 const Wrapper = styled.div`
   position: relative;

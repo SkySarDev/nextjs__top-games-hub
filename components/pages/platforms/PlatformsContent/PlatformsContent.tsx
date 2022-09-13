@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { IPlatformsDto } from '@appTypes/platformsPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentMain } from '@components/content'
+import { ContentHeader, ContentWrapper } from '@components/content'
 import { CardCommon } from '@components/cards'
 import { ContentGrid } from '@styles/components/content.components'
 
@@ -22,7 +22,7 @@ const PlatformsContent: FC<IPlatformsContentProps> = ({
 
       <ContentHeader image={background_image} />
 
-      <ContentMain title="Platforms">
+      <ContentWrapper title="Platforms">
         <ContentGrid>
           {platforms.map((platform) => (
             <CardCommon
@@ -32,7 +32,7 @@ const PlatformsContent: FC<IPlatformsContentProps> = ({
             />
           ))}
         </ContentGrid>
-      </ContentMain>
+      </ContentWrapper>
     </>
   )
 }
