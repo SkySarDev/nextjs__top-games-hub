@@ -65,7 +65,6 @@ const Grid = styled.div`
   column-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   text-align: center;
-  overflow-wrap: break-word;
 `
 const Tags = styled.div`
   margin-top: 20px;

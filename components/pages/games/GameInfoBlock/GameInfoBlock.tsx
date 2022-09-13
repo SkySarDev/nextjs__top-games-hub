@@ -43,6 +43,10 @@ const Title = styled.h5`
   font-size: 18px;
 `
 const Body = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 5px;
   color: #999;
 
   a {
