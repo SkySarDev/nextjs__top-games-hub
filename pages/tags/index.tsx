@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { PagesServices } from '@services/pages.services'
 import { ContentError } from '@components/content'
-import { TagsContent } from '@components/pages/tags'
+import { CategoryListTemplate } from '@components/pages/common'
 
 const Tags: NextPage = () => {
   const { data } = useQuery(['tags-page'], PagesServices.getTags)
@@ -13,7 +13,7 @@ const Tags: NextPage = () => {
   return (
     <>
       {data ? (
-        <TagsContent tagsData={data} />
+        <CategoryListTemplate category='tags' data={data} />
       ) : (
         <ContentError />
       )}

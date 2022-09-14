@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { ContentError } from '@components/content'
-import { PlatformContent } from '@components/pages/platforms'
+import { CategoryContentTemplate } from '@components/pages/common'
 
 const PlatformPage: NextPage = () => {
   const { query } = useRouter()
@@ -15,13 +15,15 @@ const PlatformPage: NextPage = () => {
   )
 
   // prettier-ignore
-  return <>
-    {data ? (
-      <PlatformContent platformData={data} />
-    ) : (
-      <ContentError />
-    )}
-  </>
+  return (
+    <>
+      {data ? (
+        <CategoryContentTemplate data={data} />
+      ) : (
+        <ContentError />
+      )}
+    </>
+  )
 }
 
 export default PlatformPage

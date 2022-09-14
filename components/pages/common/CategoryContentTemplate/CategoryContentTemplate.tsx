@@ -1,23 +1,23 @@
 import { FC } from 'react'
 
-import { IGenreDto } from '@appTypes/genresPage.types'
+import { ICategoryContentResponse } from '@appTypes/pages.types'
 import { MainHead } from '@components/layout'
 import {
   ContentHeader,
   ContentWrapper,
   ContentSection,
 } from '@components/content'
-import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
-import { ContentGrid, ContentRows } from '@styles/components/content.components'
+import { CardGame } from '@components/cards'
+import { ContentRows, ContentGrid } from '@styles/components/content.components'
 
-interface IGenreContentProps {
-  genreData: IGenreDto
+interface ICategoryContentTemplateProps {
+  data: ICategoryContentResponse
 }
 
-const GenreContent: FC<IGenreContentProps> = ({
-  genreData: {
-    name,
+const CategoryContentTemplate: FC<ICategoryContentTemplateProps> = ({
+  data: {
+    title,
     description,
     description_raw,
     background_image,
@@ -25,8 +25,6 @@ const GenreContent: FC<IGenreContentProps> = ({
     games_list,
   },
 }) => {
-  const title = `${name} games`
-
   return (
     <>
       <MainHead title={title} description={description_raw} />
@@ -53,4 +51,4 @@ const GenreContent: FC<IGenreContentProps> = ({
   )
 }
 
-export default GenreContent
+export default CategoryContentTemplate

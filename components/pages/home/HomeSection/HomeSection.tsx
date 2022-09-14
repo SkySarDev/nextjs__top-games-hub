@@ -10,25 +10,22 @@ interface IHomePageSectionProps {
   children: ReactNode
 }
 
-const HomePageSection: FC<IHomePageSectionProps> = ({
-  link,
-  title,
-  children,
-}) => {
+const HomeSection: FC<IHomePageSectionProps> = ({ link, title, children }) => {
   return (
-    <>
+    <div>
       <Title>
         <Link href={link}>{title}</Link>
       </Title>
 
       <ContentGrid>{children}</ContentGrid>
-    </>
+    </div>
   )
 }
 
-export default HomePageSection
+export default HomeSection
 
 const Title = styled.h2`
+  margin-bottom: 15px;
   padding: 0 5px;
   font-size: 22px;
   line-height: 120%;

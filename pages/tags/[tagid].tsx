@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { ContentError } from '@components/content'
-import { TagContent } from '@components/pages/tags'
+import { CategoryContentTemplate } from '@components/pages/common'
 
 const TagPage: NextPage = () => {
   const { query } = useRouter()
@@ -18,7 +18,7 @@ const TagPage: NextPage = () => {
   return (
     <>
       {data ? (
-        <TagContent tagData={data} />
+        <CategoryContentTemplate data={data} />
       ) : (
         <ContentError />
       )}

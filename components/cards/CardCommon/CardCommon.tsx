@@ -3,11 +3,12 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 import { ICardCommon } from '@appTypes/cards.types'
+import { PageCategories } from '@appTypes/pages.types'
 import { CardWrapper } from '@components/cards'
 
 interface ICardCommonProps {
   data: ICardCommon
-  category: 'genres' | 'tags' | 'platforms'
+  category: PageCategories
 }
 
 const CardCommon: FC<ICardCommonProps> = ({ data, category }) => {

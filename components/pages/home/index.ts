@@ -1,3 +1,4 @@
-import HomePageSection from './HomePageSection/HomePageSection'
+import HomeContent from './HomeContent/HomeContent'
+import HomeSection from './HomeSection/HomeSection'
 
-export { HomePageSection }
+export { HomeContent, HomeSection }

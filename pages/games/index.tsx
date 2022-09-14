@@ -13,7 +13,7 @@ const Games: NextPage = () => {
   return (
     <>
       {data ? (
-        <GamesContent gamesData={data} />
+        <GamesContent data={data} />
       ) : (
         <ContentError />
       )}

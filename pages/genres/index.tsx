@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { PagesServices } from '@services/pages.services'
 import { ContentError } from '@components/content'
-import { GenresContent } from '@components/pages/genres'
+import { CategoryListTemplate } from '@components/pages/common'
 
 const Genres: NextPage = () => {
   const { data } = useQuery(['genres-page'], PagesServices.getGenres)
@@ -13,7 +13,7 @@ const Genres: NextPage = () => {
   return (
     <>
       {data ? (
-        <GenresContent genresData={data} />
+        <CategoryListTemplate category='genres' data={data} />
       ) : (
         <ContentError />
       )}

@@ -15,13 +15,15 @@ const GamePage: NextPage = () => {
   )
 
   // prettier-ignore
-  return <>
-    {data ? (
-      <GameContent gameData={data} />
-    ) : (
-      <ContentError />
-    )}
-  </>
+  return (
+    <>
+      {data ? (
+        <GameContent data={data} />
+      ) : (
+        <ContentError />
+      )}
+    </>
+  )
 }
 
 export default GamePage

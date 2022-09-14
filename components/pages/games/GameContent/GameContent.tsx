@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { IGameDto } from '@appTypes/gamesPage.types'
+import { IGamePageResponse } from '@appTypes/gamesPage.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentWrapper } from '@components/content'
 import {
@@ -12,11 +12,11 @@ import {
 import { ContentRows } from '@styles/components/content.components'
 
 interface IGameContentProps {
-  gameData: IGameDto
+  data: IGamePageResponse
 }
 
 const GameContent: FC<IGameContentProps> = ({
-  gameData: {
+  data: {
     name,
     released,
     website,

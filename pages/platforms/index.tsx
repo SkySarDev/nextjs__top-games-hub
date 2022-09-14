@@ -4,19 +4,21 @@ import { useQuery } from '@tanstack/react-query'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { PagesServices } from '@services/pages.services'
 import { ContentError } from '@components/content'
-import { PlatformsContent } from '@components/pages/platforms'
+import { CategoryListTemplate } from '@components/pages/common'
 
 const Platforms: NextPage = () => {
   const { data } = useQuery(['platforms-page'], PagesServices.getPlatforms)
 
   // prettier-ignore
-  return <>
-    {data ? (
-      <PlatformsContent platformsData={data} />
-    ) : (
-      <ContentError />
-    )}
-  </>
+  return (
+    <>
+      {data ? (
+        <CategoryListTemplate category='platforms' data={data} />
+      ) : (
+        <ContentError />
+      )}
+    </>
+  )
 }
 
 export default Platforms
