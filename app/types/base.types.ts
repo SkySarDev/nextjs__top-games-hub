@@ -4,7 +4,7 @@ export interface IBaseDataBlock {
   slug: string
 }
 
-export interface IBaseCommonItem extends IBaseDataBlock {
+export interface IBaseCategoryItem extends IBaseDataBlock {
   games_count: number
   image_background: string
 }

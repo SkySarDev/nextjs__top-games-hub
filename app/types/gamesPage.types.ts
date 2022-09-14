@@ -6,7 +6,7 @@ export interface IGameScreenshot {
   image: string
 }
 
-export interface IGameDto {
+export interface IGamePageResponse {
   id: number
   slug: string
   name: string
@@ -25,8 +25,10 @@ export interface IGameDto {
   screenshots: IGameScreenshot[]
 }
 
-export interface IGamesDto {
+export interface IGamesPageResponse {
+  title: string
+  description: string
   background_image: string
   games_count: number
-  games: ICardGame[]
+  games_list: ICardGame[]
 }
