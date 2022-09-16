@@ -11,7 +11,7 @@ import {
   ICategoryListResponse,
 } from '@appTypes/pages.types'
 
-const { GAMES, GENRES, HOME, PLATFORMS, TAGS } = ROUTES
+const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS } = ROUTES
 
 export const PagesServices = {
   async getHome(): Promise<IHomePageResponse> {
@@ -48,5 +48,13 @@ export const PagesServices = {
 
   async getTagById(id: string): Promise<ICategoryContentResponse> {
     return request({ url: `${TAGS}/${id}`, method: 'GET' })
+  },
+
+  async getDevelopers(): Promise<ICategoryListResponse> {
+    return request({ url: DEVELOPERS, method: 'GET' })
+  },
+
+  async getDeveloperById(id: string): Promise<ICategoryContentResponse> {
+    return request({ url: `${DEVELOPERS}/${id}`, method: 'GET' })
   },
 }

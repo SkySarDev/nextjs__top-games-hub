@@ -17,4 +17,9 @@ export interface ICategoryListResponse {
   list: IBaseCategoryItem[]
 }
 
-export type PageCategories = 'genres' | 'tags' | 'platforms'
+export type PageCategories =
+  | 'genres'
+  | 'tags'
+  | 'platforms'
+  | 'developers'
+  | 'publishers'
