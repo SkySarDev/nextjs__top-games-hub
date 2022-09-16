@@ -5,13 +5,13 @@ import {
   IGamesPageResponse,
   IGamePageResponse,
 } from '@appTypes/gamesPage.types'
-import { ROUTES } from '@constants/routes.constants'
 import {
   ICategoryContentResponse,
   ICategoryListResponse,
 } from '@appTypes/pages.types'
+import { ROUTES } from '@constants/routes.constants'
 
-const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS } = ROUTES
+const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS, PUBLISHERS } = ROUTES
 
 export const PagesServices = {
   async getHome(): Promise<IHomePageResponse> {
@@ -56,5 +56,13 @@ export const PagesServices = {
 
   async getDeveloperById(id: string): Promise<ICategoryContentResponse> {
     return request({ url: `${DEVELOPERS}/${id}`, method: 'GET' })
+  },
+
+  async getPublishers(): Promise<ICategoryListResponse> {
+    return request({ url: PUBLISHERS, method: 'GET' })
+  },
+
+  async getPublisherById(id: string): Promise<ICategoryContentResponse> {
+    return request({ url: `${PUBLISHERS}/${id}`, method: 'GET' })
   },
 }
