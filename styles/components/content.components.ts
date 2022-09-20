@@ -51,3 +51,10 @@ export const SkeletonLine = styled.div`
     }
   }
 `
+
+export const InfoText = styled.p`
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 130%;
+  text-align: center;
+`

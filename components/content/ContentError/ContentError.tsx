@@ -3,9 +3,10 @@ import styled from 'styled-components'
 
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentWrapper } from '@components/content'
+import { InfoText } from '@styles/components/content.components'
 
 interface IContentErrorProps {
-  statusCode?: number
+  statusCode?: number | string
   statusText?: string
 }
 
@@ -32,12 +33,7 @@ const ContentError: FC<IContentErrorProps> = ({
 
 export default ContentError
 
-const Text = styled.p`
-  font-size: 24px;
-  font-weight: bold;
-  line-height: 130%;
-  text-align: center;
-
+const Text = styled(InfoText)`
   :not(:last-child) {
     margin-bottom: 15px;
   }
