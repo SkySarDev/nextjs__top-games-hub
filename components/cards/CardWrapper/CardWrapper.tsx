@@ -2,17 +2,14 @@ import { ReactNode, FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
-import { CardAbsoluteDiv } from '@styles/components'
+import { CardAbsoluteDiv } from '@styles/components/content.components'
+import { CardBaseWrapper } from '@styles/components/cards.components'
 
 interface ICardWrapperProps {
   bgImage: string | null
   width: number
   height: number
   children: ReactNode
-}
-
-interface IWrapperDivProps {
-  height: number
 }
 
 const CardWrapper: FC<ICardWrapperProps> = ({
@@ -24,24 +21,16 @@ const CardWrapper: FC<ICardWrapperProps> = ({
   const image = bgImage || '/images/card-no-image.png'
 
   return (
-    <Wrapper height={height + 2}>
+    <CardBaseWrapper height={height + 2}>
       <BgImage src={image} width={width} height={height} />
       <BgGradient />
       <Hover>{children}</Hover>
-    </Wrapper>
+    </CardBaseWrapper>
   )
 }
 
 export default CardWrapper
 
-const Wrapper = styled.div<IWrapperDivProps>`
-  position: relative;
-  height: ${({ height }) => height}px;
-  border: 1px solid #59584c;
-  border-radius: 5px;
-  background-color: #1b1b1b;
-  overflow: hidden;
-`
 const BgImage = styled(Image)`
   position: absolute;
   object-fit: cover;
