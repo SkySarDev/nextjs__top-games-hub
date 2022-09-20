@@ -3,7 +3,7 @@ import Head from 'next/head'
 
 interface IMainHeadProps {
   title: string
-  description: string
+  description?: string
 }
 
 const MainHead: NextPage<IMainHeadProps> = ({ title, description }) => {
@@ -12,7 +12,7 @@ const MainHead: NextPage<IMainHeadProps> = ({ title, description }) => {
   return (
     <Head>
       <title>{fullTitle}</title>
-      <meta name="description" content={description} />
+      {description && <meta name="description" content={description} />}
       <link rel="icon" href="/favicon.png" />
     </Head>
   )

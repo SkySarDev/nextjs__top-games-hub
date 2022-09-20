@@ -9,14 +9,12 @@ interface IProps {
   gamesCount?: number
 }
 
-const FilterBlock: FC<IProps> = ({ gamesCount }) => {
+const FilterBlock: FC<IProps> = ({ gamesCount = 0 }) => {
   return (
     <Wrapper>
-      {gamesCount && (
-        <GamesCount>
-          Games count: <span>{gamesCount.toLocaleString('en-US')}</span>
-        </GamesCount>
-      )}
+      <GamesCount>
+        Games count: <span>{gamesCount.toLocaleString('en-US')}</span>
+      </GamesCount>
 
       <Sticker Icon={BsFilterRight} iconSize={20}>
         Filter
