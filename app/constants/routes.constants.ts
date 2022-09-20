@@ -8,4 +8,5 @@ export const ROUTES = {
   PUBLISHERS: '/publishers',
   PLATFORMS: '/platforms',
   RELEASE_CALENDAR: '/release-calendar',
+  SEARCH: '/search',
 }

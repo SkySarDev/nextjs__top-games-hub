@@ -8,10 +8,12 @@ import {
 import {
   ICategoryContentResponse,
   ICategoryListResponse,
+  ISearchContentResponse,
 } from '@appTypes/pages.types'
 import { ROUTES } from '@constants/routes.constants'
 
-const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS, PUBLISHERS } = ROUTES
+const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS, PUBLISHERS, SEARCH } =
+  ROUTES
 
 export const PagesServices = {
   async getHome(): Promise<IHomePageResponse> {
@@ -64,5 +66,9 @@ export const PagesServices = {
 
   async getPublisherById(id: string): Promise<ICategoryContentResponse> {
     return request({ url: `${PUBLISHERS}/${id}`, method: 'GET' })
+  },
+
+  async getSearchResults(text: string): Promise<ISearchContentResponse> {
+    return request({ url: `${SEARCH}/${text}`, method: 'GET' })
   },
 }

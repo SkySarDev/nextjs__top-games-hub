@@ -1,7 +1,11 @@
 import { ChangeEvent, FormEvent, useState, FC } from 'react'
+import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
+import { ROUTES } from '@constants/routes.constants'
+
 const SearchBlock: FC = () => {
+  const router = useRouter()
   const [inputValue, setInputValue] = useState('')
 
   const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -13,7 +17,7 @@ const SearchBlock: FC = () => {
     const value = inputValue.trim()
 
     if (value) {
-      console.log(value)
+      router.push(`${ROUTES.SEARCH}/${value}`)
       setInputValue('')
     }
   }
@@ -55,6 +59,9 @@ const SearchInput = styled.input`
   color: #999;
 `
 const Button = styled.button`
+  display: grid;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
 `
 const ButtonImg = styled.img`
