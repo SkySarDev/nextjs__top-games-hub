@@ -1,5 +1,6 @@
 import { QueryFunction } from '@tanstack/query-core'
 import { QueryClient, dehydrate } from '@tanstack/react-query'
+import { IErrorResponse } from '@appTypes/base.types'
 
 export const customFetchQuery = async (
   queryKey: string[],
@@ -11,7 +12,7 @@ export const customFetchQuery = async (
   try {
     await queryClient.fetchQuery(queryKey, queryFn)
   } catch (err: any) {
-    isError = err.message || 'Unknown error'
+    isError = err as IErrorResponse
   }
 
   return {
