@@ -12,8 +12,17 @@ import {
 } from '@appTypes/pages.types'
 import { ROUTES } from '@constants/routes.constants'
 
-const { GAMES, GENRES, HOME, PLATFORMS, TAGS, DEVELOPERS, PUBLISHERS, SEARCH } =
-  ROUTES
+const {
+  GAMES,
+  GENRES,
+  HOME,
+  PLATFORMS,
+  TAGS,
+  DEVELOPERS,
+  PUBLISHERS,
+  SEARCH,
+  RELEASE_CALENDAR,
+} = ROUTES
 
 export const PagesServices = {
   async getHome(): Promise<IHomePageResponse> {
@@ -70,5 +79,9 @@ export const PagesServices = {
 
   async getSearchResults(text: string): Promise<ISearchContentResponse> {
     return request({ url: `${SEARCH}/${text}`, method: 'GET' })
+  },
+
+  async getReleaseCalendar(): Promise<IGamesPageResponse> {
+    return request({ url: RELEASE_CALENDAR, method: 'GET' })
   },
 }
