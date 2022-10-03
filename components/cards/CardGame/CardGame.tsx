@@ -33,9 +33,7 @@ const CardGame: FC<ICardGameProps> = ({ data }) => {
         <InfoRow>
           <GenresList genresList={genres} maxWidth={215} />
           {released && (
-            <Link
-              href={`${ROUTES.RELEASE_CALENDAR}?dates=${released},${released}`}
-            >
+            <Link href={`${ROUTES.RELEASE_CALENDAR}/${released}`}>
               {releaseDateShort}
             </Link>
           )}
