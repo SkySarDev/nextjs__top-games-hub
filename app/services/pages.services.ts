@@ -84,4 +84,8 @@ export const PagesServices = {
   async getReleaseCalendar(): Promise<IGamesPageResponse> {
     return request({ url: RELEASE_CALENDAR, method: 'GET' })
   },
+
+  async getReleaseCalendarByDate(date: string): Promise<IGamesPageResponse> {
+    return request({ url: `${RELEASE_CALENDAR}/${date}`, method: 'GET' })
+  },
 }
