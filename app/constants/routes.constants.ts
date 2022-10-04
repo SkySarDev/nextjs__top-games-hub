@@ -9,4 +9,5 @@ export const ROUTES = {
   PLATFORMS: '/platforms',
   RELEASE_CALENDAR: '/release-calendar',
   SEARCH: '/search',
+  NEXT_PAGE: '/next-page',
 }

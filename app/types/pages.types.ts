@@ -22,6 +22,11 @@ export interface ICategoryListResponse {
   list: IBaseCategoryItem[]
 }
 
+export interface INextPageResponse {
+  list: ICardGame[]
+  next_page: string | null
+}
+
 export type PageCategories =
   | 'genres'
   | 'tags'

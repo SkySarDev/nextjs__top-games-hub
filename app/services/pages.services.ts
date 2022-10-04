@@ -9,6 +9,7 @@ import {
   ICategoryContentResponse,
   ICategoryListResponse,
   ISearchContentResponse,
+  INextPageResponse,
 } from '@appTypes/pages.types'
 import { ROUTES } from '@constants/routes.constants'
 
@@ -22,6 +23,7 @@ const {
   PUBLISHERS,
   SEARCH,
   RELEASE_CALENDAR,
+  NEXT_PAGE,
 } = ROUTES
 
 export const PagesServices = {
@@ -87,5 +89,16 @@ export const PagesServices = {
 
   async getReleaseCalendarByDate(date: string): Promise<IGamesPageResponse> {
     return request({ url: `${RELEASE_CALENDAR}/${date}`, method: 'GET' })
+  },
+
+  async getNextPage(query: string): Promise<INextPageResponse> {
+    return request({
+      url: NEXT_PAGE,
+      method: 'POST',
+      data: { query },
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+    })
   },
 }
