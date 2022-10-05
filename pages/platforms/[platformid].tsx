@@ -6,6 +6,8 @@ import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
+import { useInfiniteData } from '@hooks/useInfiniteData'
+import { ICardGame } from '@appTypes/cards.types'
 
 const PlatformPage: NextPage = () => {
   const { query } = useRouter()
@@ -13,12 +15,26 @@ const PlatformPage: NextPage = () => {
   const { data } = useQuery(['platform-by-id', platformId], () =>
     PagesServices.getPlatformById(platformId)
   )
+  const { list, nextPage, nextPageError, fetchNextPage } =
+    useInfiniteData<ICardGame>({
+      initList: data?.games_list,
+      initNextPage: data?.next_page,
+    })
 
-  // prettier-ignore
   return (
     <>
       {data ? (
-        <CategoryContentTemplate data={data} />
+        <CategoryContentTemplate
+          title={data.title}
+          description={data.description}
+          description_raw={data.description_raw}
+          background_image={data.background_image}
+          games_count={data.games_count}
+          games_list={list}
+          next_page={nextPage}
+          nextPageError={nextPageError}
+          getNextPage={fetchNextPage}
+        />
       ) : (
         <ContentError />
       )}
