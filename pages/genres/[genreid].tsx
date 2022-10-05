@@ -4,8 +4,10 @@ import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
+import { ICardGame } from '@appTypes/cards.types'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
+import { useInfiniteData } from '@hooks/useInfiniteData'
 
 const GenrePage: NextPage = () => {
   const { query } = useRouter()
@@ -13,12 +15,26 @@ const GenrePage: NextPage = () => {
   const { data } = useQuery(['genre-by-id', genreId], () =>
     PagesServices.getGenreById(genreId)
   )
+  const { list, nextPage, nextPageError, fetchNextPage } =
+    useInfiniteData<ICardGame>({
+      initList: data?.games_list,
+      initNextPage: data?.next_page,
+    })
 
-  // prettier-ignore
   return (
     <>
       {data ? (
-        <CategoryContentTemplate data={data} />
+        <CategoryContentTemplate
+          title={data.title}
+          description={data.description}
+          description_raw={data.description_raw}
+          background_image={data.background_image}
+          games_count={data.games_count}
+          games_list={list}
+          next_page={nextPage}
+          nextPageError={nextPageError}
+          getNextPage={fetchNextPage}
+        />
       ) : (
         <ContentError />
       )}
