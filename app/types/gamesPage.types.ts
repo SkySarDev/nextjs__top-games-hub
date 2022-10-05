@@ -31,4 +31,5 @@ export interface IGamesPageResponse {
   background_image: string
   games_count: number
   games_list: ICardGame[]
+  next_page: string | null
 }

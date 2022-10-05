@@ -2,31 +2,53 @@ import { FC } from 'react'
 
 import { ICategoryListResponse, PageCategories } from '@appTypes/pages.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentWrapper } from '@components/content'
+import {
+  ContentHeader,
+  ContentWrapper,
+  ContentInfiniteScroll,
+} from '@components/content'
 import { CardCommon } from '@components/cards'
-import { ContentGrid } from '@styles/components/content.components'
+import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface ICategoryListTemplateProps {
+interface ICategoryListTemplateProps extends ICategoryListResponse {
   category: PageCategories
-  data: ICategoryListResponse
+  getNextPage: () => void
+  next_page: string | null
+  nextPageError: boolean
 }
 
 const CategoryListTemplate: FC<ICategoryListTemplateProps> = ({
   category,
-  data: { title, description, background_image, list },
+  title,
+  description,
+  background_image,
+  list,
+  getNextPage,
+  next_page,
+  nextPageError,
 }) => {
   return (
     <>
       <MainHead title={title} description={description} />
-
       <ContentHeader image={background_image} />
 
       <ContentWrapper title={title}>
-        <ContentGrid>
-          {list.map((item) => (
-            <CardCommon data={item} category={category} key={item.id} />
-          ))}
-        </ContentGrid>
+        <ContentRows>
+          {!list.length ? (
+            <InfoText>Nothing found</InfoText>
+          ) : (
+            <ContentInfiniteScroll
+              getNextPage={getNextPage}
+              next_page={next_page}
+              nextPageError={nextPageError}
+              dataLength={list.length}
+            >
+              {list.map((item) => (
+                <CardCommon data={item} category={category} key={item.id} />
+              ))}
+            </ContentInfiniteScroll>
+          )}
+        </ContentRows>
       </ContentWrapper>
     </>
   )

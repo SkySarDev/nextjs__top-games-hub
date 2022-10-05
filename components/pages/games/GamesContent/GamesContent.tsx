@@ -2,33 +2,54 @@ import { FC } from 'react'
 
 import { IGamesPageResponse } from '@appTypes/gamesPage.types'
 import { MainHead } from '@components/layout'
-import { ContentHeader, ContentWrapper } from '@components/content'
+import {
+  ContentHeader,
+  ContentWrapper,
+  ContentInfiniteScroll,
+} from '@components/content'
 import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
-import { ContentGrid, ContentRows } from '@styles/components/content.components'
+import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface IGamesContentProps {
-  data: IGamesPageResponse
+interface IGamesContentProps extends IGamesPageResponse {
+  getNextPage: () => void
+  next_page: string | null
+  nextPageError: boolean
 }
 
 const GamesContent: FC<IGamesContentProps> = ({
-  data: { title, description, background_image, games_count, games_list },
+  title,
+  description,
+  background_image,
+  games_count,
+  games_list,
+  getNextPage,
+  next_page,
+  nextPageError,
 }) => {
   return (
     <>
       <MainHead title={title} description={description} />
-
       <ContentHeader image={background_image} />
 
       <ContentWrapper title={title}>
         <ContentRows>
           <FilterBlock gamesCount={games_count} />
 
-          <ContentGrid>
-            {games_list.map((game) => (
-              <CardGame data={game} key={game.name} />
-            ))}
-          </ContentGrid>
+          {!games_list.length ? (
+            <InfoText>No games found</InfoText>
+          ) : (
+            <ContentInfiniteScroll
+              getNextPage={getNextPage}
+              next_page={next_page}
+              nextPageError={nextPageError}
+              dataLength={games_list.length}
+            >
+              {games_list.map((game) => (
+                <CardGame data={game} key={game.name} />
+              ))}
+            </ContentInfiniteScroll>
+          )}
         </ContentRows>
       </ContentWrapper>
     </>

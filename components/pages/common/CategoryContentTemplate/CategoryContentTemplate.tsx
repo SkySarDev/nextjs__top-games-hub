@@ -6,24 +6,28 @@ import {
   ContentHeader,
   ContentWrapper,
   ContentSection,
+  ContentInfiniteScroll,
 } from '@components/content'
 import { FilterBlock } from '@components/shared'
 import { CardGame } from '@components/cards'
-import { ContentRows, ContentGrid } from '@styles/components/content.components'
+import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface ICategoryContentTemplateProps {
-  data: ICategoryContentResponse
+interface ICategoryContentTemplateProps extends ICategoryContentResponse {
+  getNextPage: () => void
+  next_page: string | null
+  nextPageError: boolean
 }
 
 const CategoryContentTemplate: FC<ICategoryContentTemplateProps> = ({
-  data: {
-    title,
-    description,
-    description_raw,
-    background_image,
-    games_count,
-    games_list,
-  },
+  title,
+  description,
+  description_raw,
+  background_image,
+  games_count,
+  games_list,
+  getNextPage,
+  next_page,
+  nextPageError,
 }) => {
   return (
     <>
@@ -40,11 +44,20 @@ const CategoryContentTemplate: FC<ICategoryContentTemplateProps> = ({
 
           <FilterBlock gamesCount={games_count} />
 
-          <ContentGrid>
-            {games_list.map((gameItem) => (
-              <CardGame data={gameItem} key={gameItem.name} />
-            ))}
-          </ContentGrid>
+          {!games_list.length ? (
+            <InfoText>No games found</InfoText>
+          ) : (
+            <ContentInfiniteScroll
+              getNextPage={getNextPage}
+              next_page={next_page}
+              nextPageError={nextPageError}
+              dataLength={games_list.length}
+            >
+              {games_list.map((game) => (
+                <CardGame data={game} key={game.name} />
+              ))}
+            </ContentInfiniteScroll>
+          )}
         </ContentRows>
       </ContentWrapper>
     </>

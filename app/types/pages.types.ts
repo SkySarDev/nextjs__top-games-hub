@@ -1,5 +1,4 @@
-import { ICardGame } from '@appTypes/cards.types'
-import { IBaseCategoryItem } from '@appTypes/base.types'
+import { ICardGame, ICardCommon } from '@appTypes/cards.types'
 
 export interface ISearchContentResponse {
   games_count: number
@@ -11,6 +10,7 @@ export interface ICategoryContentResponse {
   background_image: string
   games_count: number
   games_list: ICardGame[]
+  next_page: string | null
   description: string
   description_raw: string
 }
@@ -19,11 +19,12 @@ export interface ICategoryListResponse {
   title: string
   description: string
   background_image: string
-  list: IBaseCategoryItem[]
+  list: ICardCommon[]
+  next_page: string | null
 }
 
 export interface INextPageResponse {
-  list: ICardGame[]
+  list: ICardGame[] | ICardCommon[]
   next_page: string | null
 }
 
