@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useInfiniteData } from '@hooks/useInfiniteData'
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
+import { ICardGame } from '@appTypes/cards.types'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
 
@@ -14,10 +15,11 @@ const TagPage: NextPage = () => {
   const { data } = useQuery(['tag-by-id', tagId], () =>
     PagesServices.getTagById(tagId)
   )
-  const { list, nextPage, nextPageError, fetchNextPage } = useInfiniteData({
-    initList: data?.games_list,
-    initNextPage: data?.next_page,
-  })
+  const { list, nextPage, nextPageError, fetchNextPage } =
+    useInfiniteData<ICardGame>({
+      initList: data?.games_list,
+      initNextPage: data?.next_page,
+    })
 
   return (
     <>

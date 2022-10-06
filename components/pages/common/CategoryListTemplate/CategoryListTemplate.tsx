@@ -13,7 +13,6 @@ import { ContentRows, InfoText } from '@styles/components/content.components'
 interface ICategoryListTemplateProps extends ICategoryListResponse {
   category: PageCategories
   getNextPage: () => void
-  next_page: string | null
   nextPageError: boolean
 }
 
@@ -39,7 +38,7 @@ const CategoryListTemplate: FC<ICategoryListTemplateProps> = ({
           ) : (
             <ContentInfiniteScroll
               getNextPage={getNextPage}
-              next_page={next_page}
+              nextPage={next_page}
               nextPageError={nextPageError}
               dataLength={list.length}
             >

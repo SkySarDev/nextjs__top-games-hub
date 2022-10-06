@@ -7,14 +7,14 @@ import { ContentGrid } from '@styles/components/content.components'
 
 interface IContentInfiniteScrollProps {
   getNextPage: () => void
-  next_page: string | null
+  nextPage: string | null
   nextPageError: boolean
   dataLength: number
   children: ReactNode
 }
 
 const ContentInfiniteScroll: FC<IContentInfiniteScrollProps> = ({
-  next_page,
+  nextPage,
   nextPageError,
   getNextPage,
   dataLength,
@@ -24,7 +24,7 @@ const ContentInfiniteScroll: FC<IContentInfiniteScrollProps> = ({
     <>
       <InfiniteScroll
         next={getNextPage}
-        hasMore={!!next_page && !nextPageError}
+        hasMore={!!nextPage && !nextPageError}
         loader={
           <ShowSpinner>
             <Spinner />

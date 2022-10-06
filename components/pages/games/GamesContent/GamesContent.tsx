@@ -13,7 +13,6 @@ import { ContentRows, InfoText } from '@styles/components/content.components'
 
 interface IGamesContentProps extends IGamesPageResponse {
   getNextPage: () => void
-  next_page: string | null
   nextPageError: boolean
 }
 
@@ -41,7 +40,7 @@ const GamesContent: FC<IGamesContentProps> = ({
           ) : (
             <ContentInfiniteScroll
               getNextPage={getNextPage}
-              next_page={next_page}
+              nextPage={next_page}
               nextPageError={nextPageError}
               dataLength={games_list.length}
             >
