@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 
-import { ISearchContentResponse } from '@appTypes/pages.types'
+import { ICardGame } from '@appTypes/cards.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentWrapper } from '@components/content'
 import { FilterBlock } from '@components/shared'
@@ -11,13 +11,21 @@ import { ContentRows, ContentGrid } from '@styles/components/content.components'
 interface ISearchContentProps {
   isLoading: boolean
   searchText: string
-  data?: ISearchContentResponse
+  gamesCount: number
+  gamesList: ICardGame[]
+  nextPage: string | null
+  nextPageError: boolean
+  getNextPage: () => void
 }
 
 const SearchContent: FC<ISearchContentProps> = ({
   isLoading,
   searchText,
-  data,
+  gamesCount,
+  gamesList,
+  nextPage,
+  nextPageError,
+  getNextPage,
 }) => {
   const title = `Search results for: ${searchText}`
 
@@ -28,7 +36,7 @@ const SearchContent: FC<ISearchContentProps> = ({
 
       <ContentWrapper title={title}>
         <ContentRows>
-          <FilterBlock gamesCount={data?.games_count} />
+          <FilterBlock gamesCount={gamesCount} />
 
           {isLoading ? (
             <ContentGrid>
@@ -38,7 +46,12 @@ const SearchContent: FC<ISearchContentProps> = ({
               />
             </ContentGrid>
           ) : (
-            <GamesList games_list={data?.games_list} />
+            <GamesList
+              gamesList={gamesList}
+              nextPage={nextPage}
+              nextPageError={nextPageError}
+              getNextPage={getNextPage}
+            />
           )}
         </ContentRows>
       </ContentWrapper>

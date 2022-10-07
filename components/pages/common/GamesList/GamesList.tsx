@@ -2,23 +2,37 @@ import React, { FC } from 'react'
 
 import { ICardGame } from '@appTypes/cards.types'
 import { CardGame } from '@components/cards'
-import { ContentGrid, InfoText } from '@styles/components/content.components'
+import { ContentInfiniteScroll } from '@components/content'
+import { InfoText } from '@styles/components/content.components'
 
 interface IGamesListProps {
-  games_list?: ICardGame[]
+  gamesList: ICardGame[]
+  getNextPage: () => void
+  nextPage: string | null
+  nextPageError: boolean
 }
 
-const GamesList: FC<IGamesListProps> = ({ games_list }) => {
+const GamesList: FC<IGamesListProps> = ({
+  gamesList,
+  nextPage,
+  nextPageError,
+  getNextPage,
+}) => {
   return (
     <>
-      {!games_list?.length ? (
+      {!gamesList.length ? (
         <InfoText>No search results</InfoText>
       ) : (
-        <ContentGrid>
-          {games_list.map((gameItem) => (
-            <CardGame data={gameItem} key={gameItem.name} />
+        <ContentInfiniteScroll
+          getNextPage={getNextPage}
+          nextPage={nextPage}
+          nextPageError={nextPageError}
+          dataLength={gamesList.length}
+        >
+          {gamesList.map((game) => (
+            <CardGame data={game} key={game.name} />
           ))}
-        </ContentGrid>
+        </ContentInfiniteScroll>
       )}
     </>
   )

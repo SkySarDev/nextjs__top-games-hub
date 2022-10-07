@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Dispatch, SetStateAction } from 'react'
 import { PagesServices } from '@services/pages.services'
 
 interface IInfiniteDataProps<T> {
@@ -8,7 +8,9 @@ interface IInfiniteDataProps<T> {
 
 interface IReturnedData<T> {
   list: T[]
+  setList: Dispatch<SetStateAction<T[]>>
   nextPage: string | null
+  setNextPage: Dispatch<SetStateAction<string | null>>
   nextPageError: boolean
   fetchNextPage: () => void
 }
@@ -39,5 +41,5 @@ export function useInfiniteData<T>({
     }
   }
 
-  return { list, nextPage, nextPageError, fetchNextPage }
+  return { list, setList, nextPage, setNextPage, nextPageError, fetchNextPage }
 }

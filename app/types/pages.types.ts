@@ -3,6 +3,7 @@ import { ICardGame, ICardCommon } from '@appTypes/cards.types'
 export interface ISearchContentResponse {
   games_count: number
   games_list: ICardGame[]
+  next_page: string | null
 }
 
 export interface ICategoryContentResponse {
