@@ -8,3 +8,8 @@ export interface IErrorResponse {
   status: number
   message: string
 }
+
+export interface IBgImage {
+  image: string
+  blurDataURL: string
+}

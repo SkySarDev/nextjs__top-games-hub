@@ -1,5 +1,7 @@
 import { QueryFunction } from '@tanstack/query-core'
 import { QueryClient, dehydrate } from '@tanstack/react-query'
+
+import { getBgImage } from '@utils/images.utils'
 import { IErrorResponse } from '@appTypes/base.types'
 
 export const customFetchQuery = async (
@@ -8,6 +10,8 @@ export const customFetchQuery = async (
 ) => {
   const queryClient = new QueryClient()
   let isError = null
+  let dehydratedState = null
+  let bgImage = null
 
   try {
     await queryClient.fetchQuery(queryKey, queryFn)
@@ -15,10 +19,21 @@ export const customFetchQuery = async (
     isError = err as IErrorResponse
   }
 
+  if (!isError) {
+    dehydratedState = dehydrate(queryClient)
+
+    const { background_image } = dehydratedState.queries[0].state.data as {
+      background_image: string | null | undefined
+    }
+
+    bgImage = await getBgImage(background_image)
+  }
+
   return {
     props: {
       isError,
-      dehydratedState: dehydrate(queryClient),
+      dehydratedState,
+      bgImage,
     },
   }
 }
