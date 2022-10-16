@@ -3,12 +3,13 @@ import { useQuery } from '@tanstack/react-query'
 
 import { customFetchQuery } from '@utils/fetch.utils'
 import { PagesServices } from '@services/pages.services'
-import { ContentError } from '@components/content'
-import { CategoryListTemplate } from '@components/pages/common'
 import { useInfiniteData } from '@hooks/useInfiniteData'
 import { ICardCommon } from '@appTypes/cards.types'
+import { IPageWithBgImage } from '@appTypes/pages.types'
+import { ContentError } from '@components/content'
+import { CategoryListTemplate } from '@components/pages/common'
 
-const Publishers: NextPage = () => {
+const Publishers: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['publishers-page'], PagesServices.getPublishers)
   const { list, nextPage, nextPageError, fetchNextPage } =
     useInfiniteData<ICardCommon>({
@@ -23,11 +24,11 @@ const Publishers: NextPage = () => {
           category="publishers"
           title={data.title}
           description={data.description}
-          background_image={data.background_image}
           list={list}
           getNextPage={fetchNextPage}
           next_page={nextPage}
           nextPageError={nextPageError}
+          bgImage={bgImage}
         />
       ) : (
         <ContentError />

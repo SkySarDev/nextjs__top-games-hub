@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
+import { IBgImage } from '@appTypes/base.types'
 import { MainHead } from '@components/layout'
 import { ContentHeader, ContentWrapper } from '@components/content'
 import {
@@ -13,6 +14,7 @@ import { ContentRows } from '@styles/components/content.components'
 
 interface IGameContentProps {
   data: IGamePageResponse
+  bgImage: IBgImage
 }
 
 const GameContent: FC<IGameContentProps> = ({
@@ -28,15 +30,15 @@ const GameContent: FC<IGameContentProps> = ({
     tags,
     screenshots,
     metacritic,
-    background_image,
     description,
     description_raw,
   },
+  bgImage,
 }) => {
   return (
     <>
       <MainHead title={name} description={description_raw} />
-      <ContentHeader image={background_image} />
+      <ContentHeader image={bgImage.image} blurDataURL={bgImage.blurDataURL} />
 
       <ContentWrapper title={name}>
         <ContentRows>

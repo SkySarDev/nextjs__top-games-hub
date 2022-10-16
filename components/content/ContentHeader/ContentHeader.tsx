@@ -2,18 +2,27 @@ import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
+import { IBgImage } from '@appTypes/base.types'
 import { CardAbsoluteDiv } from '@styles/components'
+import {
+  DEFAULT_HEADER_IMAGE,
+  DEFAULT_HEADER_BLUR_DATA_URL,
+} from '@constants/common.constants'
 
-interface IContentHeaderProps {
-  image?: string | null
-}
-
-const ContentHeader: FC<IContentHeaderProps> = ({ image }) => {
-  const headerImage = image || '/images/default-header-image.jpg'
+const ContentHeader: FC<Partial<IBgImage>> = ({ image, blurDataURL }) => {
+  const img = image || DEFAULT_HEADER_IMAGE
+  const blur = blurDataURL || DEFAULT_HEADER_BLUR_DATA_URL
 
   return (
     <Header>
-      <BgImage src={headerImage} layout="fill" objectFit="cover" priority />
+      <BgImage
+        src={img}
+        layout="fill"
+        objectFit="cover"
+        placeholder="blur"
+        blurDataURL={blur}
+        priority
+      />
       <BgGradient />
     </Header>
   )

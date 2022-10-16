@@ -4,12 +4,13 @@ import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
-import { ContentError } from '@components/content'
-import { CategoryContentTemplate } from '@components/pages/common'
 import { useInfiniteData } from '@hooks/useInfiniteData'
 import { ICardGame } from '@appTypes/cards.types'
+import { IPageWithBgImage } from '@appTypes/pages.types'
+import { ContentError } from '@components/content'
+import { CategoryContentTemplate } from '@components/pages/common'
 
-const PlatformPage: NextPage = () => {
+const PlatformPage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { query } = useRouter()
   const platformId = query.platformid as string
   const { data } = useQuery(['platform-by-id', platformId], () =>
@@ -28,12 +29,12 @@ const PlatformPage: NextPage = () => {
           title={data.title}
           description={data.description}
           description_raw={data.description_raw}
-          background_image={data.background_image}
           games_count={data.games_count}
           games_list={list}
           next_page={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
+          bgImage={bgImage}
         />
       ) : (
         <ContentError />

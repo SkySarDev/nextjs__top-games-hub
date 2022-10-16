@@ -6,10 +6,11 @@ import { useInfiniteData } from '@hooks/useInfiniteData'
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { ICardGame } from '@appTypes/cards.types'
+import { IPageWithBgImage } from '@appTypes/pages.types'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
 
-const TagPage: NextPage = () => {
+const TagPage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { query } = useRouter()
   const tagId = query.tagid as string
   const { data } = useQuery(['tag-by-id', tagId], () =>
@@ -28,12 +29,12 @@ const TagPage: NextPage = () => {
           title={data.title}
           description={data.description}
           description_raw={data.description_raw}
-          background_image={data.background_image}
           games_count={data.games_count}
           games_list={list}
           next_page={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
+          bgImage={bgImage}
         />
       ) : (
         <ContentError />

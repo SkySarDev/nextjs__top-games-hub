@@ -4,10 +4,11 @@ import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
+import { IPageWithBgImage } from '@appTypes/pages.types'
 import { ContentError } from '@components/content'
 import { GameContent } from '@components/pages/games'
 
-const GamePage: NextPage = () => {
+const GamePage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { query } = useRouter()
   const gameId = query.gameid as string
   const { data } = useQuery(['game-by-id', gameId], () =>
@@ -18,7 +19,7 @@ const GamePage: NextPage = () => {
   return (
     <>
       {data ? (
-        <GameContent data={data} />
+        <GameContent data={data} bgImage={bgImage} />
       ) : (
         <ContentError />
       )}

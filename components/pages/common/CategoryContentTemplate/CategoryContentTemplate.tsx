@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { ICategoryContentResponse } from '@appTypes/pages.types'
+import { IBgImage } from '@appTypes/base.types'
 import { MainHead } from '@components/layout'
 import {
   ContentHeader,
@@ -12,26 +13,28 @@ import { FilterBlock } from '@components/shared'
 import { CardGame } from '@components/cards'
 import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface ICategoryContentTemplateProps extends ICategoryContentResponse {
+interface ICategoryContentTemplateProps
+  extends Omit<ICategoryContentResponse, 'background_image'> {
   getNextPage: () => void
   nextPageError: boolean
+  bgImage: IBgImage
 }
 
 const CategoryContentTemplate: FC<ICategoryContentTemplateProps> = ({
   title,
   description,
   description_raw,
-  background_image,
   games_count,
   games_list,
   getNextPage,
   next_page,
   nextPageError,
+  bgImage,
 }) => {
   return (
     <>
       <MainHead title={title} description={description_raw} />
-      <ContentHeader image={background_image} />
+      <ContentHeader image={bgImage.image} blurDataURL={bgImage.blurDataURL} />
 
       <ContentWrapper title={title}>
         <ContentRows>

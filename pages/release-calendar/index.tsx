@@ -5,10 +5,11 @@ import { useInfiniteData } from '@hooks/useInfiniteData'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { PagesServices } from '@services/pages.services'
 import { ICardGame } from '@appTypes/cards.types'
+import { IPageWithBgImage } from '@appTypes/pages.types'
 import { ContentError } from '@components/content'
 import { GamesContent } from '@components/pages/games'
 
-const ReleaseCalendar: NextPage = () => {
+const ReleaseCalendar: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(
     ['release-calendar-page'],
     PagesServices.getReleaseCalendar
@@ -25,12 +26,12 @@ const ReleaseCalendar: NextPage = () => {
         <GamesContent
           title={data.title}
           description={data.description}
-          background_image={data.background_image}
           games_count={data.games_count}
           games_list={list}
           next_page={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
+          bgImage={bgImage}
         />
       ) : (
         <ContentError />

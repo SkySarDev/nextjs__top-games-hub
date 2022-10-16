@@ -3,33 +3,36 @@ import { FC } from 'react'
 import { ICategoryListResponse, PageCategories } from '@appTypes/pages.types'
 import { MainHead } from '@components/layout'
 import {
-  ContentHeader,
   ContentWrapper,
   ContentInfiniteScroll,
+  ContentHeader,
 } from '@components/content'
 import { CardCommon } from '@components/cards'
 import { ContentRows, InfoText } from '@styles/components/content.components'
+import { IBgImage } from '@appTypes/base.types'
 
-interface ICategoryListTemplateProps extends ICategoryListResponse {
+interface ICategoryListTemplateProps
+  extends Omit<ICategoryListResponse, 'background_image'> {
   category: PageCategories
   getNextPage: () => void
   nextPageError: boolean
+  bgImage: IBgImage
 }
 
 const CategoryListTemplate: FC<ICategoryListTemplateProps> = ({
   category,
   title,
   description,
-  background_image,
   list,
   getNextPage,
   next_page,
   nextPageError,
+  bgImage,
 }) => {
   return (
     <>
       <MainHead title={title} description={description} />
-      <ContentHeader image={background_image} />
+      <ContentHeader image={bgImage.image} blurDataURL={bgImage.blurDataURL} />
 
       <ContentWrapper title={title}>
         <ContentRows>

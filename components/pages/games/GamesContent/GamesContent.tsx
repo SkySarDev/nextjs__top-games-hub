@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import { IGamesPageResponse } from '@appTypes/gamesPage.types'
+import { IBgImage } from '@appTypes/base.types'
 import { MainHead } from '@components/layout'
 import {
   ContentHeader,
@@ -11,25 +12,27 @@ import { CardGame } from '@components/cards'
 import { FilterBlock } from '@components/shared'
 import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface IGamesContentProps extends IGamesPageResponse {
+interface IGamesContentProps
+  extends Omit<IGamesPageResponse, 'background_image'> {
   getNextPage: () => void
   nextPageError: boolean
+  bgImage: IBgImage
 }
 
 const GamesContent: FC<IGamesContentProps> = ({
   title,
   description,
-  background_image,
   games_count,
   games_list,
   getNextPage,
   next_page,
   nextPageError,
+  bgImage,
 }) => {
   return (
     <>
       <MainHead title={title} description={description} />
-      <ContentHeader image={background_image} />
+      <ContentHeader image={bgImage.image} blurDataURL={bgImage.blurDataURL} />
 
       <ContentWrapper title={title}>
         <ContentRows>

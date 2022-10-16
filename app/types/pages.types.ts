@@ -1,4 +1,9 @@
 import { ICardGame, ICardCommon } from '@appTypes/cards.types'
+import { IBgImage } from '@appTypes/base.types'
+
+export interface IPageWithBgImage {
+  bgImage: IBgImage
+}
 
 export interface ISearchContentResponse {
   games_count: number
