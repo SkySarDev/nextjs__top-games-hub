@@ -9,11 +9,12 @@ import platforms from '@public/images/icons/platforms.svg'
 import developers from '@public/images/icons/developers.svg'
 import publishers from '@public/images/icons/publishers.svg'
 
+// TODO: Delete icons
+
 export const NAVBAR_LIST = [
-  { link: ROUTES.ROOT, name: 'Home page', icon: home },
-  { link: ROUTES.GAMES, name: 'All games', icon: games },
+  { link: ROUTES.ROOT, name: 'Home', icon: home },
+  { link: ROUTES.GAMES, name: 'All Games', icon: games },
   { link: ROUTES.GENRES, name: 'Genres', icon: genres },
-  { link: ROUTES.TAGS, name: 'Game tags', icon: tags },
   {
     link: ROUTES.RELEASE_CALENDAR,
     name: 'Release calendar',
@@ -24,6 +25,7 @@ export const NAVBAR_LIST = [
     name: 'Platforms',
     icon: platforms,
   },
+  { link: ROUTES.TAGS, name: 'Tags', icon: tags },
   {
     link: ROUTES.DEVELOPERS,
     name: 'Developers',
