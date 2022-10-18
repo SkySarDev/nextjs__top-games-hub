@@ -7,13 +7,12 @@
 .genreItemTrunc {
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid #59584c;
-  border-radius: 3px;
   white-space: nowrap;
 }
 
 .genreItem a,
 .genreItemTrunc {
-  padding: 0.3em 0.5em;
+  padding: 3px 7px;
 }
 
 .genreItem a {
