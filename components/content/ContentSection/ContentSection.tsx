@@ -1,13 +1,12 @@
-import { FC, ReactNode } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-interface IProps {
+interface IContentSectionProps extends PropsWithChildren {
   title?: string
   titleAlign?: 'center' | 'left' | 'right'
-  children: ReactNode
 }
 
-const ContentSection: FC<IProps> = ({
+const ContentSection: FC<IContentSectionProps> = ({
   title,
   titleAlign = 'center',
   children,
@@ -25,11 +24,10 @@ export default ContentSection
 
 const Wrapper = styled.div`
   border: 1px solid #59584c;
-  border-radius: 5px;
   background-color: rgba(0, 0, 0, 0.35);
   padding: 15px 20px;
 `
-const Title = styled.h3<Pick<IProps, 'titleAlign'>>`
+const Title = styled.h3<Pick<IContentSectionProps, 'titleAlign'>>`
   font-size: 22px;
   font-weight: bold;
   text-align: ${({ titleAlign }) => titleAlign};
