@@ -11,7 +11,9 @@ const HeaderNavbar: FC = () => {
   return (
     <Wrapper>
       <Link href={ROUTES.ROOT}>
-        <Logo src={logo} width={200} height={40} alt="Top Games Hub" />
+        <a>
+          <Image src={logo} width={200} height={40} alt="Top Games Hub" />
+        </a>
       </Link>
 
       <NavList>
@@ -38,6 +40,7 @@ const Wrapper = styled.div`
   width: 1160px;
   height: 50px;
   background-color: #1b1b1b;
+  z-index: 1000;
 
   :after {
     content: '';
@@ -52,9 +55,6 @@ const Wrapper = styled.div`
       rgba(27, 27, 27, 0.8) 100%
     );
   }
-`
-const Logo = styled(Image)`
-  cursor: pointer;
 `
 const NavList = styled.ul`
   display: flex;

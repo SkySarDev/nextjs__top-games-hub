@@ -1,5 +1,4 @@
-import HeaderNavbar from './HeaderNavbar/HeaderNavbar'
-import MainHead from './MainHead/MainHead'
-import MainLayout from './MainLayout/MainLayout'
+import MainHead from './MainHead'
+import MainLayout from './MainLayout'
 
-export { HeaderNavbar, MainHead, MainLayout }
+export { MainHead, MainLayout }
