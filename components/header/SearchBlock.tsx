@@ -26,7 +26,7 @@ const SearchBlock: FC = () => {
     <Form onSubmit={formSubmitHandler}>
       <SearchInput
         type="text"
-        placeholder="Search games"
+        placeholder="Search game"
         value={inputValue}
         onChange={inputChangeHandler}
       />
@@ -44,17 +44,15 @@ const Form = styled.form`
   grid-template-columns: 1fr auto;
   align-items: center;
   column-gap: 10px;
-  margin: 50px 20px 15px;
-  height: 30px;
+  height: 35px;
   border: 1px solid #59584c;
-  border-radius: 3px;
-  padding: 0 7px;
+  padding: 0 10px;
+  background-color: #1b1b1b;
 `
 const SearchInput = styled.input`
   width: 100%;
   height: 100%;
   font-size: 18px;
-  border-radius: 3px;
   background-color: transparent;
   color: #999;
 `
