@@ -47,6 +47,7 @@ const Form = styled.form`
   height: 35px;
   border: 1px solid #59584c;
   padding: 0 10px;
+  margin-bottom: 3px;
   background-color: #1b1b1b;
 `
 const SearchInput = styled.input`

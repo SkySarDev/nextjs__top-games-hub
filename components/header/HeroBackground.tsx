@@ -1,21 +1,26 @@
-import styled from 'styled-components'
+import { FC } from 'react'
 import Image from 'next/image'
+import styled from 'styled-components'
 
+import { IBgImage } from '@appTypes/base.types'
 import {
   DEFAULT_HEADER_IMAGE,
   DEFAULT_HEADER_BLUR_DATA_URL,
 } from '@constants/common.constants'
 import { CardAbsoluteDiv } from '@styles/components'
 
-const HeroBackground = () => {
+const HeroBackground: FC<Partial<IBgImage>> = ({ image, blurDataURL }) => {
+  const img = image || DEFAULT_HEADER_IMAGE
+  const blur = blurDataURL || DEFAULT_HEADER_BLUR_DATA_URL
+
   return (
     <Wrapper>
       <BgImage
-        src={DEFAULT_HEADER_IMAGE}
+        src={img}
         layout="fill"
         objectFit="cover"
         placeholder="blur"
-        blurDataURL={DEFAULT_HEADER_BLUR_DATA_URL}
+        blurDataURL={blur}
         priority
       />
       <BgGradient />

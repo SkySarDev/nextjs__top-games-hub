@@ -1,11 +1,17 @@
+import { FC } from 'react'
 import styled from 'styled-components'
 
-import { SearchBlock, HeroTitle } from '@components/header/index'
+import { DEFAULT_TITLE } from '@constants/common.constants'
+import { SearchBlock } from '@components/header'
 
-const Hero = () => {
+interface IHeroProps {
+  title?: string
+}
+
+const Hero: FC<IHeroProps> = ({ title = DEFAULT_TITLE }) => {
   return (
     <Wrapper>
-      <HeroTitle />
+      <HeroTitle>{title}</HeroTitle>
       <SearchBlock />
     </Wrapper>
   )
@@ -21,4 +27,13 @@ const Wrapper = styled.div`
   align-items: end;
   column-gap: 30px;
   height: 330px;
+`
+const HeroTitle = styled.h1`
+  margin: 0;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 120%;
+  color: #e2e0d0;
+  text-shadow: 3px 3px #1b1b1b;
+  padding-left: 10px;
 `

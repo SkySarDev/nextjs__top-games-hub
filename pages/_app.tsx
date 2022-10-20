@@ -8,10 +8,10 @@ import {
 
 import { queryClientConfig } from '@configs/reactQuery.configs'
 import '@configs/nprogress.configs'
+import { IErrorResponse } from '@appTypes/base.types'
 import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import '@styles/globals.css'
-import { IErrorResponse } from '@appTypes/base.types'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient(queryClientConfig))
@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     const error = pageProps.isError as IErrorResponse
 
     return (
-      <MainLayout>
+      <MainLayout title={String(error.status)}>
         <ContentError statusCode={error.status} statusText={error.message} />
       </MainLayout>
     )
@@ -29,9 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
+        <Component {...pageProps} />
       </Hydrate>
     </QueryClientProvider>
   )

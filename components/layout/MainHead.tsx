@@ -1,13 +1,15 @@
-import type { NextPage } from 'next'
+import { FC } from 'react'
 import Head from 'next/head'
 
+import { DEFAULT_TITLE } from '@constants/common.constants'
+
 interface IMainHeadProps {
-  title: string
+  title?: string
   description?: string
 }
 
-const MainHead: NextPage<IMainHeadProps> = ({ title, description }) => {
-  const fullTitle = `${title} - Top Games Hub`
+const MainHead: FC<IMainHeadProps> = ({ title, description }) => {
+  const fullTitle = title ? `${title} - ${DEFAULT_TITLE}` : DEFAULT_TITLE
 
   return (
     <Head>

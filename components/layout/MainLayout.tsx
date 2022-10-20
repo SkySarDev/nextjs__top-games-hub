@@ -1,17 +1,39 @@
 import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
+import { IBgImage } from '@appTypes/base.types'
+import { MainHead } from '@components/layout/index'
 import { HeaderNavbar, Hero, HeroBackground } from '@components/header'
 
-const MainLayout: FC<PropsWithChildren> = ({ children }) => {
-  return (
-    <Container>
-      <HeaderNavbar />
-      <HeroBackground />
-      <Hero />
+interface IMainLayoutProps extends PropsWithChildren {
+  title?: string
+  description?: string
+  bgImage?: IBgImage
+  pathname?: string
+}
 
-      {children}
-    </Container>
+const MainLayout: FC<IMainLayoutProps> = ({
+  title,
+  description,
+  bgImage,
+  pathname,
+  children,
+}) => {
+  return (
+    <>
+      <MainHead title={title} description={description} />
+
+      <Container>
+        <HeaderNavbar pathname={pathname} />
+        <HeroBackground
+          image={bgImage?.image}
+          blurDataURL={bgImage?.blurDataURL}
+        />
+        <Hero title={title} />
+
+        {children}
+      </Container>
+    </>
   )
 }
 
