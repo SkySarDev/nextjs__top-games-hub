@@ -1,5 +1,5 @@
-import CategoryContentTemplate from './CategoryContentTemplate/CategoryContentTemplate'
-import CategoryListTemplate from './CategoryListTemplate/CategoryListTemplate'
-import GamesList from './GamesList/GamesList'
+import CategoryContentTemplate from './CategoryContentTemplate'
+import CategoryListTemplate from './CategoryListTemplate'
+import GamesList from './GamesList'
 
 export { CategoryContentTemplate, CategoryListTemplate, GamesList }

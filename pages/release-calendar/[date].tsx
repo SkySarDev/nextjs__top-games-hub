@@ -6,6 +6,7 @@ import { customFetchQuery } from '@utils/fetch.utils'
 import { useInfiniteData } from '@hooks/useInfiniteData'
 import { PagesServices } from '@services/pages.services'
 import { IPageWithBgImage } from '@appTypes/pages.types'
+import { MainLayout } from '@components/layout'
 import { GamesContent } from '@components/pages/games'
 import { ContentError } from '@components/content'
 
@@ -21,22 +22,22 @@ const ReleaseCalendarByDate: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   })
 
   return (
-    <>
+    <MainLayout
+      title={data?.title}
+      description={data?.description}
+      bgImage={bgImage}
+    >
       {data ? (
         <GamesContent
-          title={data.title}
-          description={data.description}
-          games_count={data.games_count}
-          games_list={list}
+          gamesList={list}
           getNextPage={fetchNextPage}
-          next_page={nextPage}
+          nextPage={nextPage}
           nextPageError={nextPageError}
-          bgImage={bgImage}
         />
       ) : (
         <ContentError />
       )}
-    </>
+    </MainLayout>
   )
 }
 

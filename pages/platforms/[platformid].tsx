@@ -9,6 +9,7 @@ import { ICardGame } from '@appTypes/cards.types'
 import { IPageWithBgImage } from '@appTypes/pages.types'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
+import { MainLayout } from '@components/layout'
 
 const PlatformPage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { query } = useRouter()
@@ -23,23 +24,23 @@ const PlatformPage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     })
 
   return (
-    <>
+    <MainLayout
+      title={data?.title}
+      description={data?.description_raw}
+      bgImage={bgImage}
+    >
       {data ? (
         <CategoryContentTemplate
-          title={data.title}
           description={data.description}
-          description_raw={data.description_raw}
-          games_count={data.games_count}
-          games_list={list}
-          next_page={nextPage}
+          gamesList={list}
+          nextPage={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
-          bgImage={bgImage}
         />
       ) : (
         <ContentError />
       )}
-    </>
+    </MainLayout>
   )
 }
 

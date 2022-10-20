@@ -1,9 +1,14 @@
 import { NextPage } from 'next'
 
 import { ContentError } from '@components/content'
+import { MainLayout } from '@components/layout'
 
 const Custom404: NextPage = () => {
-  return <ContentError statusCode={404} statusText="Page not found" />
+  return (
+    <MainLayout title={`Error 404`}>
+      <ContentError statusText="Page not found" />
+    </MainLayout>
+  )
 }
 
 export default Custom404

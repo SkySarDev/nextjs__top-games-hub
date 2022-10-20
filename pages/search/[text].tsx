@@ -9,6 +9,7 @@ import { ISearchContentResponse } from '@appTypes/pages.types'
 import { ICardGame } from '@appTypes/cards.types'
 import { ContentError } from '@components/content'
 import { SearchContent } from '@components/pages/search'
+import { MainLayout } from '@components/layout'
 
 const SearchPage: NextPage = () => {
   const { query } = useRouter()
@@ -31,21 +32,19 @@ const SearchPage: NextPage = () => {
   }, [data, setList, setNextPage])
 
   return (
-    <>
+    <MainLayout title={`Search results for: ${searchText}`}>
       {error ? (
-        <ContentError statusCode={error?.status} statusText={error?.message} />
+        <ContentError statusText={error?.message} />
       ) : (
         <SearchContent
           isLoading={isLoading}
-          searchText={searchText}
           gamesList={list}
-          gamesCount={data?.games_count}
           nextPage={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
         />
       )}
-    </>
+    </MainLayout>
   )
 }
 

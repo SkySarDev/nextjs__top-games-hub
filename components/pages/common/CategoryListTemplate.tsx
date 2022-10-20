@@ -1,20 +1,23 @@
 import { FC } from 'react'
 
-import { ICardGame } from '@appTypes/cards.types'
+import { ICardCommon } from '@appTypes/cards.types'
+import { PageCategories } from '@appTypes/pages.types'
 import { ContentInfiniteScroll } from '@components/content'
-import { CardGame } from '@components/cards'
+import { CardCommon } from '@components/cards'
 import { BlockWrapper } from '@components/shared'
 import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface IGamesContentProps {
-  gamesList: ICardGame[]
+interface ICategoryListTemplateProps {
+  category: PageCategories
+  list: ICardCommon[]
   nextPage: string | null
   getNextPage: () => void
   nextPageError: boolean
 }
 
-const GamesContent: FC<IGamesContentProps> = ({
-  gamesList,
+const CategoryListTemplate: FC<ICategoryListTemplateProps> = ({
+  category,
+  list,
   getNextPage,
   nextPage,
   nextPageError,
@@ -22,17 +25,17 @@ const GamesContent: FC<IGamesContentProps> = ({
   return (
     <BlockWrapper>
       <ContentRows>
-        {!gamesList.length ? (
-          <InfoText>No games found</InfoText>
+        {!list.length ? (
+          <InfoText>Nothing found</InfoText>
         ) : (
           <ContentInfiniteScroll
             getNextPage={getNextPage}
             nextPage={nextPage}
             nextPageError={nextPageError}
-            dataLength={gamesList.length}
+            dataLength={list.length}
           >
-            {gamesList.map((game) => (
-              <CardGame data={game} key={game.name} />
+            {list.map((item) => (
+              <CardCommon data={item} category={category} key={item.id} />
             ))}
           </ContentInfiniteScroll>
         )}
@@ -41,4 +44,4 @@ const GamesContent: FC<IGamesContentProps> = ({
   )
 }
 
-export default GamesContent
+export default CategoryListTemplate

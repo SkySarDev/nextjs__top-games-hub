@@ -20,8 +20,8 @@ function MyApp({ Component, pageProps }: AppProps) {
     const error = pageProps.isError as IErrorResponse
 
     return (
-      <MainLayout title={String(error.status)}>
-        <ContentError statusCode={error.status} statusText={error.message} />
+      <MainLayout title={`Error ${error.status}`}>
+        <ContentError statusText={error.message} />
       </MainLayout>
     )
   }

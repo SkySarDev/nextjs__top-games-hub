@@ -1,4 +1,5 @@
 import { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { customFetchQuery } from '@utils/fetch.utils'
@@ -6,11 +7,13 @@ import { useInfiniteData } from '@hooks/useInfiniteData'
 import { PagesServices } from '@services/pages.services'
 import { ICardCommon } from '@appTypes/cards.types'
 import { IPageWithBgImage } from '@appTypes/pages.types'
+import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import { CategoryListTemplate } from '@components/pages/common'
 
 const Genres: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['genres-page'], PagesServices.getGenres)
+  const { pathname } = useRouter()
   const { list, nextPage, nextPageError, fetchNextPage } =
     useInfiniteData<ICardCommon>({
       initList: data?.list,
@@ -18,22 +21,24 @@ const Genres: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     })
 
   return (
-    <>
+    <MainLayout
+      title={data?.title}
+      description={data?.description}
+      pathname={pathname}
+      bgImage={bgImage}
+    >
       {data ? (
         <CategoryListTemplate
           category="genres"
-          title={data.title}
-          description={data.description}
           list={list}
           getNextPage={fetchNextPage}
-          next_page={nextPage}
+          nextPage={nextPage}
           nextPageError={nextPageError}
-          bgImage={bgImage}
         />
       ) : (
         <ContentError />
       )}
-    </>
+    </MainLayout>
   )
 }
 

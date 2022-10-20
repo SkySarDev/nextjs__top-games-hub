@@ -7,6 +7,7 @@ import { customFetchQuery } from '@utils/fetch.utils'
 import { useInfiniteData } from '@hooks/useInfiniteData'
 import { IPageWithBgImage } from '@appTypes/pages.types'
 import { ICardGame } from '@appTypes/cards.types'
+import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import { CategoryContentTemplate } from '@components/pages/common'
 
@@ -23,23 +24,23 @@ const DeveloperPage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     })
 
   return (
-    <>
+    <MainLayout
+      title={data?.title}
+      description={data?.description_raw}
+      bgImage={bgImage}
+    >
       {data ? (
         <CategoryContentTemplate
-          title={data.title}
           description={data.description}
-          description_raw={data.description_raw}
-          games_count={data.games_count}
-          games_list={list}
-          next_page={nextPage}
+          gamesList={list}
+          nextPage={nextPage}
           nextPageError={nextPageError}
           getNextPage={fetchNextPage}
-          bgImage={bgImage}
         />
       ) : (
         <ContentError />
       )}
-    </>
+    </MainLayout>
   )
 }
 

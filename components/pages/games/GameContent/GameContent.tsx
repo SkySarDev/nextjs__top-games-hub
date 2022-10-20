@@ -1,9 +1,7 @@
 import { FC } from 'react'
 
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
-import { IBgImage } from '@appTypes/base.types'
-import { MainHead } from '@components/layout'
-import { ContentHeader, ContentWrapper } from '@components/content'
+import { BlockWrapper } from '@components/shared'
 import {
   GameInfo,
   GameDescription,
@@ -14,7 +12,6 @@ import { ContentRows } from '@styles/components/content.components'
 
 interface IGameContentProps {
   data: IGamePageResponse
-  bgImage: IBgImage
 }
 
 const GameContent: FC<IGameContentProps> = ({
@@ -31,40 +28,33 @@ const GameContent: FC<IGameContentProps> = ({
     screenshots,
     metacritic,
     description,
-    description_raw,
   },
-  bgImage,
 }) => {
   return (
-    <>
-      <MainHead title={name} description={description_raw} />
-      <ContentHeader image={bgImage.image} blurDataURL={bgImage.blurDataURL} />
+    <BlockWrapper>
+      <ContentRows>
+        <GameInfoHeaderGrid
+          released={released}
+          website={website}
+          metacritic={metacritic}
+          platforms={platforms}
+        />
 
-      <ContentWrapper title={name}>
-        <ContentRows>
-          <GameInfoHeaderGrid
-            released={released}
-            website={website}
-            metacritic={metacritic}
-            platforms={platforms}
-          />
+        <GameInfo
+          playtime={playtime}
+          developers={developers}
+          publishers={publishers}
+          genres={genres}
+          tags={tags}
+        />
 
-          <GameInfo
-            playtime={playtime}
-            developers={developers}
-            publishers={publishers}
-            genres={genres}
-            tags={tags}
-          />
+        <GameDescription description={description} />
 
-          <GameDescription description={description} />
-
-          {!!screenshots?.length && (
-            <GameScreenshots screenshots={screenshots} gameName={name} />
-          )}
-        </ContentRows>
-      </ContentWrapper>
-    </>
+        {!!screenshots?.length && (
+          <GameScreenshots screenshots={screenshots} gameName={name} />
+        )}
+      </ContentRows>
+    </BlockWrapper>
   )
 }
 

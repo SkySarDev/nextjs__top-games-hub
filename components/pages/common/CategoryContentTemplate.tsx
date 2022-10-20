@@ -1,19 +1,21 @@
 import { FC } from 'react'
 
 import { ICardGame } from '@appTypes/cards.types'
-import { ContentInfiniteScroll } from '@components/content'
-import { CardGame } from '@components/cards'
+import { ContentSection, ContentInfiniteScroll } from '@components/content'
 import { BlockWrapper } from '@components/shared'
+import { CardGame } from '@components/cards'
 import { ContentRows, InfoText } from '@styles/components/content.components'
 
-interface IGamesContentProps {
+interface ICategoryContentTemplateProps {
+  description: string
   gamesList: ICardGame[]
   nextPage: string | null
   getNextPage: () => void
   nextPageError: boolean
 }
 
-const GamesContent: FC<IGamesContentProps> = ({
+const CategoryContentTemplate: FC<ICategoryContentTemplateProps> = ({
+  description,
   gamesList,
   getNextPage,
   nextPage,
@@ -22,6 +24,12 @@ const GamesContent: FC<IGamesContentProps> = ({
   return (
     <BlockWrapper>
       <ContentRows>
+        {description && (
+          <ContentSection title="Description">
+            <div dangerouslySetInnerHTML={{ __html: description }} />
+          </ContentSection>
+        )}
+
         {!gamesList.length ? (
           <InfoText>No games found</InfoText>
         ) : (
@@ -41,4 +49,4 @@ const GamesContent: FC<IGamesContentProps> = ({
   )
 }
 
-export default GamesContent
+export default CategoryContentTemplate

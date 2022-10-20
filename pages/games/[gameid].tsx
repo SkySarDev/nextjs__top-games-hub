@@ -1,10 +1,11 @@
-import type { NextPage, GetServerSideProps } from 'next'
+import { NextPage, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { IPageWithBgImage } from '@appTypes/pages.types'
+import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import { GameContent } from '@components/pages/games'
 
@@ -15,15 +16,14 @@ const GamePage: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     PagesServices.getGameById(gameId)
   )
 
-  // prettier-ignore
   return (
-    <>
-      {data ? (
-        <GameContent data={data} bgImage={bgImage} />
-      ) : (
-        <ContentError />
-      )}
-    </>
+    <MainLayout
+      title={data?.name}
+      description={data?.description_raw}
+      bgImage={bgImage}
+    >
+      {data ? <GameContent data={data} /> : <ContentError />}
+    </MainLayout>
   )
 }
 
