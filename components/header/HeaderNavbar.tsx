@@ -7,7 +7,11 @@ import { NAVBAR_LIST } from '@constants/navbar.constants'
 import { ROUTES } from '@constants/routes.constants'
 import logo from '@public/images/logo.png'
 
-const HeaderNavbar: FC = () => {
+interface IHeaderNavbarProps {
+  pathname?: string
+}
+
+const HeaderNavbar: FC<IHeaderNavbarProps> = ({ pathname }) => {
   return (
     <Wrapper>
       <Link href={ROUTES.ROOT}>
@@ -20,7 +24,9 @@ const HeaderNavbar: FC = () => {
         {NAVBAR_LIST.map(({ link, name }) => (
           <Link href={link} key={name}>
             <a>
-              <NavItem>{name}</NavItem>
+              <NavItem className={`${pathname === link ? 'active' : ''}`}>
+                {name}
+              </NavItem>
             </a>
           </Link>
         ))}
@@ -73,7 +79,8 @@ const NavItem = styled.li`
   height: 35px;
   transition: background-color 0.3s;
 
-  :hover {
+  :hover,
+  &.active {
     background-color: rgba(226, 224, 208, 0.2);
   }
 `
