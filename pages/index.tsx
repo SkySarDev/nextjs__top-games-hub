@@ -1,24 +1,36 @@
 import type { NextPage } from 'next'
+import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
 import { customFetchQuery } from '@utils/fetch.utils'
 import { IPageWithBgImage } from '@appTypes/pages.types'
+import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import { HomeContent } from '@components/pages/home'
 
 const Home: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['home-page'], PagesServices.getHome)
+  const { pathname } = useRouter()
 
-  // prettier-ignore
   return (
-    <>
+    <MainLayout
+      title={data?.title}
+      description={data?.description}
+      bgImage={bgImage}
+      pathname={pathname}
+    >
       {data ? (
-        <HomeContent data={data} bgImage={bgImage}/>
+        <HomeContent
+          topGames={data.topGames}
+          newReleases={data.newReleases}
+          popularGenres={data.popularGenres}
+          tags={data.tags}
+        />
       ) : (
         <ContentError />
       )}
-    </>
+    </MainLayout>
   )
 }
 
