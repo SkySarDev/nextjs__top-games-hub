@@ -13,7 +13,7 @@ export const getBgImage = async (
   let blurDataURL = DEFAULT_HEADER_BLUR_DATA_URL
 
   if (bgImage) {
-    getPlaiceholder(bgImage, { size: 10 }).then(({ base64 }) => {
+    await getPlaiceholder(bgImage, { size: 10 }).then(({ base64 }) => {
       blurDataURL = base64
     })
   }

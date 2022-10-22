@@ -12,12 +12,13 @@ interface ICardGameProps {
   data: ICardGame
 }
 
-const CardGame: FC<ICardGameProps> = ({ data }) => {
-  const { name, slug, background_image, metacritic, released, genres } = data
+const CardGame: FC<ICardGameProps> = ({
+  data: { name, slug, background_image, metacritic, released, genres },
+}) => {
   const releaseDateShort = released ? getShortDateString(released) : null
 
   return (
-    <CardWrapper bgImage={background_image} width={344} height={248}>
+    <CardWrapper bgImage={background_image} height={250}>
       <Body>
         <Link href={`${ROUTES.GAMES}/${slug}`}>
           <a>
@@ -31,7 +32,7 @@ const CardGame: FC<ICardGameProps> = ({ data }) => {
         </Link>
 
         <InfoRow>
-          <GenresList genresList={genres} maxWidth={215} />
+          <GenresList genresList={genres} />
           {released && (
             <Link href={`${ROUTES.RELEASE_CALENDAR}/${released}`}>
               {releaseDateShort}
@@ -50,7 +51,7 @@ const Body = styled.div`
   height: 100%;
   grid-template-rows: 1fr auto;
   row-gap: 7px;
-  padding: 15px;
+  padding: 13px;
   align-content: end;
 `
 const ContentGrid = styled.div`
@@ -75,7 +76,7 @@ const InfoRow = styled.div`
   grid-template-columns: 1fr auto;
   column-gap: 15px;
   justify-content: space-between;
-  align-items: center;
+  align-items: end;
   height: 28px;
 
   a {

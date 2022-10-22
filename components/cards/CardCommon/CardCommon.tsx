@@ -11,11 +11,12 @@ interface ICardCommonProps {
   category: PageCategories
 }
 
-const CardCommon: FC<ICardCommonProps> = ({ data, category }) => {
-  const { id, name, image_background, games_count } = data
-
+const CardCommon: FC<ICardCommonProps> = ({
+  data: { id, name, image_background, games_count },
+  category,
+}) => {
   return (
-    <CardWrapper bgImage={image_background} width={344} height={218}>
+    <CardWrapper bgImage={image_background} height={220}>
       <Link href={`/${category}/${id}`}>
         <a>
           <Body>
@@ -38,7 +39,7 @@ const Body = styled.div`
   display: grid;
   align-content: end;
   height: 100%;
-  padding: 15px;
+  padding: 13px;
   color: #e2e0d0;
 `
 const Title = styled.h3`

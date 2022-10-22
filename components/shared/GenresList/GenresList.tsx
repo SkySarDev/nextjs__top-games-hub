@@ -8,14 +8,12 @@ import styles from './GenresList.module.css'
 
 interface IGenresListProps {
   genresList: IGameGenre[]
-  maxWidth: number
 }
 
-const GenresList: FC<IGenresListProps> = ({ genresList, maxWidth }) => {
+const GenresList: FC<IGenresListProps> = ({ genresList }) => {
   return (
     <TruncatedList
       className={styles.genresList}
-      style={{ maxWidth }}
       renderTruncator={({ hiddenItemsCount }) => (
         <div className={styles.genreItemTrunc}>+{hiddenItemsCount}</div>
       )}
