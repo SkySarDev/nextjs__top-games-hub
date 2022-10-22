@@ -4,8 +4,11 @@ import { ICardCommon } from '@appTypes/cards.types'
 import { PageCategories } from '@appTypes/pages.types'
 import { ContentInfiniteScroll } from '@components/content'
 import { CardCommon } from '@components/cards'
-import { BlockWrapper } from '@components/shared'
-import { ContentRows, InfoText } from '@styles/components/content.components'
+import {
+  BlockWrapper,
+  ContentRows,
+  InfoText,
+} from '@styles/components/content.components'
 
 interface ICategoryListTemplateProps {
   category: PageCategories

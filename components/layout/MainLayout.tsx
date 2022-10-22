@@ -40,7 +40,18 @@ const MainLayout: FC<IMainLayoutProps> = ({
 export default MainLayout
 
 const Container = styled.div`
-  max-width: 1200px;
-  padding: 0 20px 20px;
+  width: 100%;
+  max-width: 460px;
   margin: 0 auto;
+  padding: 0 10px 10px;
+
+  @media (min-width: 768px) {
+    max-width: 880px;
+    padding: 0 15px 15px;
+  }
+
+  @media (min-width: 1080px) {
+    max-width: 1200px;
+    padding: 0 20px 20px;
+  }
 `

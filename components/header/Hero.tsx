@@ -12,7 +12,10 @@ const Hero: FC<IHeroProps> = ({ title = DEFAULT_TITLE }) => {
   return (
     <Wrapper>
       <HeroTitle>{title}</HeroTitle>
-      <SearchBlock />
+
+      <HeroSearch>
+        <SearchBlock />
+      </HeroSearch>
     </Wrapper>
   )
 }
@@ -20,13 +23,22 @@ const Hero: FC<IHeroProps> = ({ title = DEFAULT_TITLE }) => {
 export default Hero
 
 const Wrapper = styled.div`
-  margin: 50px 0 10px 0;
   display: grid;
-  grid-template-columns: 1fr 250px;
-  justify-content: space-between;
   align-items: end;
-  column-gap: 30px;
-  height: 330px;
+  margin: 50px 0 10px 0;
+  height: 200px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 220px;
+    justify-content: space-between;
+    column-gap: 30px;
+    height: 250px;
+  }
+
+  @media (min-width: 1080px) {
+    grid-template-columns: 1fr 250px;
+    height: 330px;
+  }
 `
 const HeroTitle = styled.h1`
   margin: 0;
@@ -36,4 +48,11 @@ const HeroTitle = styled.h1`
   color: #e2e0d0;
   text-shadow: 3px 3px #1b1b1b;
   padding-left: 10px;
+`
+const HeroSearch = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
 `

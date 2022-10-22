@@ -1,8 +1,10 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { CardBaseWrapper } from '@styles/components/cards.components'
-import { SkeletonLine } from '@styles/components/content.components'
+import {
+  CardBaseWrapper,
+  SkeletonLine,
+} from '@styles/components/cards.components'
 
 const CardGameSkeleton: FC = () => {
   return (

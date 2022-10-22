@@ -3,8 +3,11 @@ import { FC } from 'react'
 import { ICardGame } from '@appTypes/cards.types'
 import { ContentInfiniteScroll } from '@components/content'
 import { CardGame } from '@components/cards'
-import { BlockWrapper } from '@components/shared'
-import { ContentRows, InfoText } from '@styles/components/content.components'
+import {
+  BlockWrapper,
+  ContentRows,
+  InfoText,
+} from '@styles/components/content.components'
 
 interface IGamesContentProps {
   gamesList: ICardGame[]

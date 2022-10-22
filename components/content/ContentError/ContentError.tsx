@@ -1,8 +1,7 @@
 import { FC } from 'react'
 import styled from 'styled-components'
 
-import { BlockWrapper } from '@components/shared'
-import { InfoText } from '@styles/components/content.components'
+import { BlockWrapper, InfoText } from '@styles/components/content.components'
 
 interface IContentErrorProps {
   statusText?: string

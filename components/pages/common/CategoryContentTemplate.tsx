@@ -2,9 +2,12 @@ import { FC } from 'react'
 
 import { ICardGame } from '@appTypes/cards.types'
 import { ContentSection, ContentInfiniteScroll } from '@components/content'
-import { BlockWrapper } from '@components/shared'
 import { CardGame } from '@components/cards'
-import { ContentRows, InfoText } from '@styles/components/content.components'
+import {
+  BlockWrapper,
+  ContentRows,
+  InfoText,
+} from '@styles/components/content.components'
 
 interface ICategoryContentTemplateProps {
   description: string

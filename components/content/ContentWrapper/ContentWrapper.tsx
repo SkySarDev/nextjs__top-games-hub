@@ -1,17 +1,11 @@
-import type { ReactNode, FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
-import { BlockWrapper } from '@components/shared'
+import { BlockWrapper } from '@styles/components/content.components'
 
-interface IContentWrapperProps {
-  title: string
-  children: ReactNode
-}
-
-const ContentWrapper: FC<IContentWrapperProps> = ({ title, children }) => {
+const ContentWrapper: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Wrapper>
-      <Title>{title}</Title>
       <BlockWrapper>{children}</BlockWrapper>
     </Wrapper>
   )
@@ -20,18 +14,9 @@ const ContentWrapper: FC<IContentWrapperProps> = ({ title, children }) => {
 export default ContentWrapper
 
 const Wrapper = styled.div`
-  position: relative;
-  margin-top: 300px;
-`
-const Title = styled.h1`
-  position: absolute;
-  left: 0;
-  top: -50px;
-  margin: 0;
-  padding-left: 20px;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: 130%;
-  color: #e2e0d0;
-  text-shadow: 3px 3px #1b1b1b;
+  max-width: 850px;
+
+  @media (min-width: 1080px) {
+    max-width: 1160px;
+  }
 `

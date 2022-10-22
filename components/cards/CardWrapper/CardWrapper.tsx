@@ -1,28 +1,22 @@
-import { ReactNode, FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
-import { CardAbsoluteDiv } from '@styles/components/content.components'
+import { DEFAULT_CARD_NO_IMAGE } from '@constants/common.constants'
+import { AbsoluteDiv } from '@styles/components/content.components'
 import { CardBaseWrapper } from '@styles/components/cards.components'
 
-interface ICardWrapperProps {
+interface ICardWrapperProps extends PropsWithChildren {
   bgImage: string | null
-  width: number
   height: number
-  children: ReactNode
 }
 
-const CardWrapper: FC<ICardWrapperProps> = ({
-  bgImage,
-  width,
-  height,
-  children,
-}) => {
-  const image = bgImage || '/images/card-no-image.png'
+const CardWrapper: FC<ICardWrapperProps> = ({ bgImage, height, children }) => {
+  const image = bgImage || DEFAULT_CARD_NO_IMAGE
 
   return (
-    <CardBaseWrapper height={height + 2}>
-      <BgImage src={image} width={width} height={height} />
+    <CardBaseWrapper height={height}>
+      <BgImage src={image} layout="fill" objectFit="cover" />
       <BgGradient />
       <Hover>{children}</Hover>
     </CardBaseWrapper>
@@ -33,9 +27,8 @@ export default CardWrapper
 
 const BgImage = styled(Image)`
   position: absolute;
-  object-fit: cover;
 `
-const BgGradient = styled(CardAbsoluteDiv)`
+const BgGradient = styled(AbsoluteDiv)`
   background: linear-gradient(
     180deg,
     rgba(27, 27, 27, 0) 0%,
@@ -43,7 +36,7 @@ const BgGradient = styled(CardAbsoluteDiv)`
     #1b1b1b 85%
   );
 `
-const Hover = styled(CardAbsoluteDiv)`
+const Hover = styled(AbsoluteDiv)`
   content: '';
   transition: background 0.35s;
   background-color: transparent;

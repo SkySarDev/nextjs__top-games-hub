@@ -7,7 +7,7 @@ import {
   DEFAULT_HEADER_IMAGE,
   DEFAULT_HEADER_BLUR_DATA_URL,
 } from '@constants/common.constants'
-import { CardAbsoluteDiv } from '@styles/components'
+import { AbsoluteDiv } from '@styles/components/content.components'
 
 const HeroBackground: FC<Partial<IBgImage>> = ({ image, blurDataURL }) => {
   const img = image || DEFAULT_HEADER_IMAGE
@@ -33,16 +33,29 @@ export default HeroBackground
 const Wrapper = styled.header`
   position: fixed;
   top: 50px;
-  width: 1170px;
-  height: 650px;
+  max-width: 430px;
+  width: calc(100% - 20px);
+  height: 330px;
   z-index: -1;
+
+  @media (min-width: 768px) {
+    max-width: 850px;
+    width: calc(100% - 30px);
+    height: 440px;
+  }
+
+  @media (min-width: 1080px) {
+    max-width: 1160px;
+    width: calc(100% - 40px);
+    height: 650px;
+  }
 `
 const BgImage = styled(Image)`
   position: absolute;
   top: 0;
   left: 0;
 `
-const BgGradient = styled(CardAbsoluteDiv)`
+const BgGradient = styled(AbsoluteDiv)`
   content: '';
   background: radial-gradient(
       50% 150% at 50% 50%,

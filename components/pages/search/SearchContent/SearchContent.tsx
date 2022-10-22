@@ -1,10 +1,12 @@
 import React, { FC } from 'react'
 
 import { ICardGame } from '@appTypes/cards.types'
-import { BlockWrapper } from '@components/shared'
 import { SkeletonCardsCreator, CardGameSkeleton } from '@components/cards'
 import { GamesList } from '@components/pages/common'
-import { ContentGrid } from '@styles/components/content.components'
+import {
+  BlockWrapper,
+  ContentGrid,
+} from '@styles/components/content.components'
 
 interface ISearchContentProps {
   isLoading: boolean

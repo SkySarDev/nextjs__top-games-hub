@@ -1,14 +1,16 @@
 import { FC } from 'react'
 
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
-import { BlockWrapper } from '@components/shared'
 import {
   GameInfo,
   GameDescription,
   GameScreenshots,
   GameInfoHeaderGrid,
 } from '@components/pages/games'
-import { ContentRows } from '@styles/components/content.components'
+import {
+  BlockWrapper,
+  ContentRows,
+} from '@styles/components/content.components'
 
 interface IGameContentProps {
   data: IGamePageResponse
