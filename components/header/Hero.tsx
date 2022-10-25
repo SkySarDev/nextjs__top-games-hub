@@ -42,12 +42,16 @@ const Wrapper = styled.div`
 `
 const HeroTitle = styled.h1`
   margin: 0;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
   line-height: 120%;
   color: #e2e0d0;
   text-shadow: 3px 3px #1b1b1b;
   padding-left: 10px;
+
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
 `
 const HeroSearch = styled.div`
   display: none;
