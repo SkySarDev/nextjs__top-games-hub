@@ -33,21 +33,20 @@ export default HeroBackground
 const Wrapper = styled.header`
   position: fixed;
   top: 50px;
-  max-width: 430px;
+  max-width: 440px;
   width: calc(100% - 20px);
-  height: 330px;
+  aspect-ratio: 1 / 0.75;
   z-index: -1;
 
   @media (min-width: 768px) {
     max-width: 850px;
     width: calc(100% - 30px);
-    height: 440px;
+    aspect-ratio: 1 / 0.55;
   }
 
   @media (min-width: 1080px) {
     max-width: 1160px;
     width: calc(100% - 40px);
-    height: 650px;
   }
 `
 const BgImage = styled(Image)`
