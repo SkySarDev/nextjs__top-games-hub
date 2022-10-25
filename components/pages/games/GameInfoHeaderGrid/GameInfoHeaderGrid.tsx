@@ -2,14 +2,17 @@ import { FC } from 'react'
 import styled from 'styled-components'
 import { CgCalendarDates, CgLink } from 'react-icons/cg'
 
-import { IGameDto } from '@appTypes/gamesPage.types'
-import { Sticker, MetacriticScore } from '@components/shared'
+import { IGamePageResponse } from '@appTypes/gamesPage.types'
+import { ROUTES } from '@constants/routes.constants'
+import { Sticker, StickerWithLink, MetacriticScore } from '@components/shared'
 import { GameInfoPlatforms } from '@components/pages/games'
 
-interface IGameInfoHeaderGridProps
-  extends Pick<IGameDto, 'released' | 'website' | 'metacritic' | 'platforms'> {}
+type GameInfoHeaderGridProps = Pick<
+  IGamePageResponse,
+  'released' | 'website' | 'metacritic' | 'platforms'
+>
 
-const GameInfoHeaderGrid: FC<IGameInfoHeaderGridProps> = ({
+const GameInfoHeaderGrid: FC<GameInfoHeaderGridProps> = ({
   released,
   website,
   platforms,
@@ -22,16 +25,24 @@ const GameInfoHeaderGrid: FC<IGameInfoHeaderGridProps> = ({
       </GridItem>
 
       <GridItem>
-        <Sticker Icon={CgCalendarDates} iconSize={20}>
-          {released || 'TBA'}
-        </Sticker>
+        {released ? (
+          <StickerWithLink
+            Icon={CgCalendarDates}
+            iconSize={20}
+            link={`${ROUTES.RELEASE_CALENDAR}/${released}`}
+          >
+            {released}
+          </StickerWithLink>
+        ) : (
+          <Sticker Icon={CgCalendarDates} iconSize={20}>
+            TBA
+          </Sticker>
+        )}
 
         {website && (
-          <a href={website} target="_blank" rel="noreferrer">
-            <Sticker Icon={CgLink} iconSize={20}>
-              Website
-            </Sticker>
-          </a>
+          <StickerWithLink Icon={CgLink} iconSize={20} externalLink={website}>
+            Website
+          </StickerWithLink>
         )}
 
         {metacritic && (
@@ -45,12 +56,13 @@ const GameInfoHeaderGrid: FC<IGameInfoHeaderGridProps> = ({
 export default GameInfoHeaderGrid
 
 const MainGrid = styled.div`
-  display: grid;
+  display: flex;
   align-items: center;
   justify-content: space-between;
-  grid-template-columns: repeat(2, max-content);
-  height: 35px;
-  padding: 0 5px;
+  gap: 15px;
+  flex-wrap: wrap;
+  padding: 0 2px;
+  margin-bottom: 15px;
 `
 const GridItem = styled.div`
   display: flex;

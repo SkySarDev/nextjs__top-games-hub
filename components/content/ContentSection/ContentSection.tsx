@@ -25,11 +25,11 @@ export default ContentSection
 const Wrapper = styled.div`
   border: 1px solid #59584c;
   background-color: rgba(0, 0, 0, 0.35);
-  padding: 15px 20px;
+  padding: 15px;
 `
 const Title = styled.h3<Pick<IContentSectionProps, 'titleAlign'>>`
   font-size: 22px;
   font-weight: bold;
   text-align: ${({ titleAlign }) => titleAlign};
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 `

@@ -17,15 +17,11 @@ const GameScreenshots: FC<IGameScreenshotsProps> = ({
   return (
     <ContentSection title="Screenshots">
       <Grid>
-        {screenshots.map((screenItem) => (
-          <ImageWrapper key={screenItem.id}>
-            <ScreenImg
-              src={screenItem.image}
-              width={333}
-              height={182}
-              alt={gameName}
-            />
-          </ImageWrapper>
+        {screenshots.map(({ id, image }) => (
+          <ScreenWrapper key={id}>
+            <Image src={image} layout="fill" objectFit="cover" alt={gameName} />
+            <ScreenBlackout />
+          </ScreenWrapper>
         ))}
       </Grid>
     </ContentSection>
@@ -36,27 +32,24 @@ export default GameScreenshots
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 `
-const ImageWrapper = styled.div`
+const ScreenWrapper = styled.div`
   position: relative;
-  height: 184px;
+  aspect-ratio: 1 / 0.55;
   object-fit: cover;
-  border-radius: 5px;
   border: 1px solid #59584c;
-  background-color: #1b1b1b;
 `
-const ScreenImg = styled(Image)`
+const ScreenBlackout = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
   cursor: pointer;
-  opacity: 0.6;
+  background-color: #1b1b1b;
+  opacity: 0.4;
   transition: opacity 0.3s;
-  object-fit: cover;
 
   :hover {
-    opacity: 1;
+    opacity: 0;
   }
 `

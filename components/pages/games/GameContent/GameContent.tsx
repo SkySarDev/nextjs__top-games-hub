@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import styled from 'styled-components'
 
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
 import {
@@ -7,10 +8,7 @@ import {
   GameScreenshots,
   GameInfoHeaderGrid,
 } from '@components/pages/games'
-import {
-  BlockWrapper,
-  ContentRows,
-} from '@styles/components/content.components'
+import { BlockWrapper } from '@styles/components/content.components'
 
 interface IGameContentProps {
   data: IGamePageResponse
@@ -34,30 +32,48 @@ const GameContent: FC<IGameContentProps> = ({
 }) => {
   return (
     <BlockWrapper>
-      <ContentRows>
-        <GameInfoHeaderGrid
-          released={released}
-          website={website}
-          metacritic={metacritic}
-          platforms={platforms}
-        />
+      <GameInfoHeaderGrid
+        released={released}
+        website={website}
+        metacritic={metacritic}
+        platforms={platforms}
+      />
 
-        <GameInfo
-          playtime={playtime}
-          developers={developers}
-          publishers={publishers}
-          genres={genres}
-          tags={tags}
-        />
-
-        <GameDescription description={description} />
+      <GameContentGrid>
+        <Grid>
+          <GameInfo
+            playtime={playtime}
+            developers={developers}
+            publishers={publishers}
+            genres={genres}
+            tags={tags}
+          />
+          <GameDescription description={description} />
+        </Grid>
 
         {!!screenshots?.length && (
           <GameScreenshots screenshots={screenshots} gameName={name} />
         )}
-      </ContentRows>
+      </GameContentGrid>
     </BlockWrapper>
   )
 }
 
 export default GameContent
+
+const Grid = styled.div`
+  display: grid;
+  align-items: start;
+  gap: 10px;
+
+  @media (min-width: 440px) {
+    gap: 15px;
+  }
+`
+const GameContentGrid = styled(Grid)`
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 300px;
+  }
+`
