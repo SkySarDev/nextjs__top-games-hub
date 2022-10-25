@@ -1,13 +1,15 @@
 import styled from 'styled-components'
 
 interface ICardBaseWrapperProps {
-  height: number
+  maxHeight: number
+  sizeRatio: number
 }
 
 export const CardBaseWrapper = styled.div<ICardBaseWrapperProps>`
   position: relative;
   width: 100%;
-  height: ${({ height }) => height}px;
+  max-height: ${({ maxHeight }) => maxHeight}px;
+  aspect-ratio: 1 / ${({ sizeRatio }) => sizeRatio};
   border: 1px solid #59584c;
   background-color: #1b1b1b;
   overflow: hidden;

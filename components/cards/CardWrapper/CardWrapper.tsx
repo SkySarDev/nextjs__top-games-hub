@@ -8,14 +8,20 @@ import { CardBaseWrapper } from '@styles/components/cards.components'
 
 interface ICardWrapperProps extends PropsWithChildren {
   bgImage: string | null
-  height: number
+  maxHeight: number
+  sizeRatio: number
 }
 
-const CardWrapper: FC<ICardWrapperProps> = ({ bgImage, height, children }) => {
+const CardWrapper: FC<ICardWrapperProps> = ({
+  bgImage,
+  maxHeight,
+  sizeRatio,
+  children,
+}) => {
   const image = bgImage || DEFAULT_CARD_NO_IMAGE
 
   return (
-    <CardBaseWrapper height={height}>
+    <CardBaseWrapper maxHeight={maxHeight} sizeRatio={sizeRatio}>
       <BgImage src={image} layout="fill" objectFit="cover" />
       <BgGradient />
       <Hover>{children}</Hover>

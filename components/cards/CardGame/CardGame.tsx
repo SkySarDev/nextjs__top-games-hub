@@ -18,7 +18,7 @@ const CardGame: FC<ICardGameProps> = ({
   const releaseDateShort = released ? getShortDateString(released) : null
 
   return (
-    <CardWrapper bgImage={background_image} height={250}>
+    <CardWrapper bgImage={background_image} maxHeight={250} sizeRatio={0.7}>
       <Body>
         <Link href={`${ROUTES.GAMES}/${slug}`}>
           <a>
