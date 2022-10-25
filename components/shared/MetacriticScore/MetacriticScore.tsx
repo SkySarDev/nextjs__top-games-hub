@@ -28,7 +28,7 @@ const Wrapper = styled.div<Required<IMetacriticScoreProps>>(
     alignItems: 'center',
     width: size + 'px',
     height: size + 'px',
-    borderRadius: '5px',
+    borderRadius: '3px',
     fontSize: fontSize + 'px',
     lineHeight: '150%',
     fontWeight: 'bold',

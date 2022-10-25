@@ -35,7 +35,11 @@ export const ContentGrid = styled.div`
 
 export const ContentRows = styled.div`
   display: grid;
-  row-gap: 15px;
+  row-gap: 10px;
+
+  @media (min-width: 440px) {
+    grid-gap: 15px;
+  }
 
   @media (min-width: 1080px) {
     row-gap: 20px;

@@ -13,7 +13,7 @@ export interface IGamePageResponse {
   description: string
   description_raw: string
   playtime: number
-  released: string
+  released: string | null
   background_image: string | null
   website: string
   metacritic: number | null

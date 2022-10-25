@@ -47,7 +47,7 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr auto;
   justify-content: space-between;
   align-items: center;
-  max-width: 430px;
+  max-width: 440px;
   width: calc(100% - 20px);
   height: 50px;
   background-color: #1b1b1b;
