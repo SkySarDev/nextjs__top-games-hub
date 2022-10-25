@@ -38,7 +38,7 @@ const HomeContent: FC<IHomeContentProps> = ({
           <CardCommonsListWithData list={popularGenres} category="genres" />
         </HomeSection>
 
-        <HomeSection title="GamesTags" link={ROUTES.TAGS}>
+        <HomeSection title="Games tags" link={ROUTES.TAGS}>
           <CardCommonsListWithData list={tags} category="tags" />
         </HomeSection>
       </ContentRows>
