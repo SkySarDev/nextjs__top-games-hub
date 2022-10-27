@@ -11,6 +11,7 @@ import '@configs/nprogress.configs'
 import { IErrorResponse } from '@appTypes/base.types'
 import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
+import { ScreenshotModalProvider } from '@context/ScreenshotModal'
 import '@styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -29,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
-        <Component {...pageProps} />
+        <ScreenshotModalProvider>
+          <Component {...pageProps} />
+        </ScreenshotModalProvider>
       </Hydrate>
     </QueryClientProvider>
   )
