@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { IGameScreenshot } from '@appTypes/gamesPage.types'
 import { ContentSection } from '@components/content'
+import { useScreenshotModal } from '@context/ScreenshotModal'
 
 interface IGameScreenshotsProps {
   screenshots: IGameScreenshot[]
@@ -14,11 +15,16 @@ const GameScreenshots: FC<IGameScreenshotsProps> = ({
   screenshots,
   gameName,
 }) => {
+  const { showModal } = useScreenshotModal()
+
   return (
     <ContentSection title="Screenshots">
       <Grid>
         {screenshots.map(({ id, image }) => (
-          <ScreenWrapper key={id}>
+          <ScreenWrapper
+            key={id}
+            onClick={() => showModal({ image, alt: gameName })}
+          >
             <Image src={image} layout="fill" objectFit="cover" alt={gameName} />
             <ScreenBlackout />
           </ScreenWrapper>

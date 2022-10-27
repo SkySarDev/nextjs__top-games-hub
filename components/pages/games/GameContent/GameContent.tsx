@@ -51,9 +51,7 @@ const GameContent: FC<IGameContentProps> = ({
           <GameDescription description={description} />
         </Grid>
 
-        {!!screenshots?.length && (
-          <GameScreenshots screenshots={screenshots} gameName={name} />
-        )}
+        <GameScreenshots screenshots={screenshots} gameName={name} />
       </GameContentGrid>
     </BlockWrapper>
   )

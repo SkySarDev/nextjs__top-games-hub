@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { IBgImage } from '@appTypes/base.types'
 import { MainHead } from '@components/layout/index'
 import { HeaderNavbar, Hero, HeroBackground } from '@components/header'
+import { GameScreenshotModal } from '@components/pages/games'
 
 interface IMainLayoutProps extends PropsWithChildren {
   title?: string
@@ -33,6 +34,8 @@ const MainLayout: FC<IMainLayoutProps> = ({
 
         {children}
       </Container>
+
+      <GameScreenshotModal />
     </>
   )
 }
