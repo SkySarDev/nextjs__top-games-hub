@@ -1,4 +1,4 @@
-import { FC, PropsWithChildren } from 'react'
+import { FC, PropsWithChildren, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { RiCloseCircleFill } from 'react-icons/ri'
 
@@ -8,10 +8,28 @@ interface IBaseModalProps extends PropsWithChildren {
 }
 
 const BaseModal: FC<IBaseModalProps> = ({ isShow, hideModal, children }) => {
+  const [visible, setVisible] = useState('')
+
+  useEffect(() => {
+    if (isShow) {
+      setTimeout(() => {
+        setVisible('visible')
+        document.body.classList.add('noscroll')
+      })
+    }
+  }, [isShow])
+
+  const onClose = () => {
+    setVisible('')
+    document.body.classList.remove('noscroll')
+
+    setTimeout(hideModal, 300)
+  }
+
   return (
     <>
       {isShow && (
-        <Wrapper onClick={hideModal}>
+        <Wrapper onClick={onClose} className={visible}>
           <CloseBtn>
             <RiCloseCircleFill />
           </CloseBtn>
@@ -35,6 +53,12 @@ const Wrapper = styled.div`
   background-color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s;
+
+  &.visible {
+    opacity: 1;
+  }
 `
 const CloseBtn = styled.button`
   position: absolute;

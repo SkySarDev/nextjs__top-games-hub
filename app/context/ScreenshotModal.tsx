@@ -38,8 +38,6 @@ export const ScreenshotModalProvider: FC<PropsWithChildren> = ({
     useState<IScreenshotModalState>(defaultModalState)
 
   const showModal = ({ image, alt }: IShowModalArgs) => {
-    document.body.style.overflowY = 'hidden'
-
     setModalState({
       isShow: true,
       image,
@@ -48,8 +46,6 @@ export const ScreenshotModalProvider: FC<PropsWithChildren> = ({
   }
 
   const hideModal = () => {
-    document.body.style.overflowY = ''
-
     setModalState(defaultModalState)
   }
 
