@@ -4,7 +4,7 @@ import styled from 'styled-components'
 
 import { ICardCommon } from '@appTypes/cards.types'
 import { PageCategories } from '@appTypes/pages.types'
-import { CardWrapper } from '@components/cards'
+import { CardWrapper } from '@components/cards/index'
 
 interface ICardCommonProps {
   data: ICardCommon

@@ -1,12 +1,12 @@
-import GameContent from './GameContent/GameContent'
-import GameDescription from './GameDescription/GameDescription'
-import GameInfo from './GameInfo/GameInfo'
-import GameInfoBlock from './GameInfoBlock/GameInfoBlock'
-import GameInfoHeaderGrid from './GameInfoHeaderGrid/GameInfoHeaderGrid'
-import GameInfoPlatforms from './GameInfoPlatforms/GameInfoPlatforms'
-import GamesContent from './GamesContent/GamesContent'
+import GameContent from './GameContent'
+import GameDescription from './GameDescription'
+import GameInfo from './GameInfo'
+import GameInfoBlock from './GameInfoBlock'
+import GameInfoHeaderGrid from './GameInfoHeaderGrid'
+import GameInfoPlatforms from './GameInfoPlatforms'
+import GamesContent from './GamesContent'
 import GameScreenshotModal from './GameScreenshotModal'
-import GameScreenshots from './GameScreenshots/GameScreenshots'
+import GameScreenshots from './GameScreenshots'
 
 export {
   GameContent,

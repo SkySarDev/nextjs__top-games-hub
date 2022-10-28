@@ -1,13 +1,12 @@
-import { ReactNode, FC } from 'react'
+import { FC, PropsWithChildren } from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 
 import { ContentGrid } from '@styles/components/content.components'
 
-interface IHomePageSectionProps {
+interface IHomePageSectionProps extends PropsWithChildren {
   link: string
   title: string
-  children: ReactNode
 }
 
 const HomeSection: FC<IHomePageSectionProps> = ({ link, title, children }) => {

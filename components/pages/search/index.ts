@@ -1,3 +1,3 @@
-import SearchContent from './SearchContent/SearchContent'
+import SearchContent from './SearchContent'
 
 export { SearchContent }

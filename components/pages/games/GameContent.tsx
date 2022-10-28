@@ -7,7 +7,7 @@ import {
   GameDescription,
   GameScreenshots,
   GameInfoHeaderGrid,
-} from '@components/pages/games'
+} from '@components/pages/games/index'
 import { BlockWrapper } from '@styles/components/content.components'
 
 interface IGameContentProps {

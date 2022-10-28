@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { IGameGenre } from '@appTypes/cards.types'
 import { ROUTES } from '@constants/routes.constants'
-import { TruncatedList } from '@components/shared'
+import { TruncatedList } from '@components/shared/index'
 import styles from './GenresList.module.css'
 
 interface IGenresListProps {

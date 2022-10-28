@@ -1,10 +1,10 @@
-import CardCommon from './CardCommon/CardCommon'
-import CardCommonsListWithData from './CardCommonsListWithData/CardCommonsListWithData'
-import CardGame from './CardGame/CardGame'
-import CardGameSkeleton from './CardGameSkeleton/CardGameSkeleton'
-import CardGamesListWithData from './CardGamesListWithData/CardGamesListWithData'
-import CardWrapper from './CardWrapper/CardWrapper'
-import SkeletonCardsCreator from './SkeletonCardsCreator/SkeletonCardsCreator'
+import CardCommon from './CardCommon'
+import CardCommonsListWithData from './CardCommonsListWithData'
+import CardGame from './CardGame'
+import CardGameSkeleton from './CardGameSkeleton'
+import CardGamesListWithData from './CardGamesListWithData'
+import CardWrapper from './CardWrapper'
+import SkeletonCardsCreator from './SkeletonCardsCreator'
 
 export {
   CardCommon,

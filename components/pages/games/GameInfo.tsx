@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
 import { ROUTES } from '@constants/routes.constants'
-import { GameInfoBlock } from '@components/pages/games'
+import { GameInfoBlock } from '@components/pages/games/index'
 import { ContentSection } from '@components/content'
 
 type GameInfoProps = Pick<

@@ -6,11 +6,11 @@ import { IBaseDataBlock } from '@appTypes/base.types'
 import { ROUTES } from '@constants/routes.constants'
 import { platformsIcons } from '@constants/platformsIcons.constants'
 
-interface IProps {
+interface IGameInfoPlatformsProps {
   platforms: IBaseDataBlock[]
 }
 
-const GameInfoPlatforms: FC<IProps> = ({ platforms }) => {
+const GameInfoPlatforms: FC<IGameInfoPlatformsProps> = ({ platforms }) => {
   return (
     <IconContext.Provider value={{ size: '25' }}>
       {platforms.map(({ id, slug }) => {

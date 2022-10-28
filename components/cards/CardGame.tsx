@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { ICardGame } from '@appTypes/cards.types'
 import { getShortDateString } from '@utils/dates.utils'
 import { ROUTES } from '@constants/routes.constants'
-import { CardWrapper } from '@components/cards'
+import { CardWrapper } from '@components/cards/index'
 import { GenresList, MetacriticScore } from '@components/shared'
 
 interface ICardGameProps {

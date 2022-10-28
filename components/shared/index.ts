@@ -1,10 +1,10 @@
 import BaseModal from './BaseModal'
-import GenresList from './GenresList/GenresList'
-import MetacriticScore from './MetacriticScore/MetacriticScore'
-import Spinner from './Spinner/Spinner'
+import GenresList from 'components/shared/GenresList'
+import MetacriticScore from 'components/shared/MetacriticScore'
+import Spinner from 'components/shared/Spinner'
 import Sticker from './Sticker'
 import StickerWithLink from './StickerWithLink'
-import TruncatedList from './TruncatedList/TruncatedList'
+import TruncatedList from 'components/shared/TruncatedList'
 
 export {
   BaseModal,

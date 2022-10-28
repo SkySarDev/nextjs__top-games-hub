@@ -1,4 +1,4 @@
-import HomeContent from './HomeContent/HomeContent'
-import HomeSection from './HomeSection/HomeSection'
+import HomeContent from './HomeContent'
+import HomeSection from './HomeSection'
 
 export { HomeContent, HomeSection }

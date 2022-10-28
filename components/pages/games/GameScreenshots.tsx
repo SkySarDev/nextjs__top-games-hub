@@ -2,9 +2,9 @@ import { FC } from 'react'
 import Image from 'next/image'
 import styled from 'styled-components'
 
+import { useScreenshotModal } from '@context/ScreenshotModal'
 import { IGameScreenshot } from '@appTypes/gamesPage.types'
 import { ContentSection } from '@components/content'
-import { useScreenshotModal } from '@context/ScreenshotModal'
 
 interface IGameScreenshotsProps {
   screenshots: IGameScreenshot[]

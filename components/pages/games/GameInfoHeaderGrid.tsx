@@ -5,7 +5,7 @@ import { CgCalendarDates, CgLink } from 'react-icons/cg'
 import { IGamePageResponse } from '@appTypes/gamesPage.types'
 import { ROUTES } from '@constants/routes.constants'
 import { Sticker, StickerWithLink, MetacriticScore } from '@components/shared'
-import { GameInfoPlatforms } from '@components/pages/games'
+import { GameInfoPlatforms } from '@components/pages/games/index'
 
 type GameInfoHeaderGridProps = Pick<
   IGamePageResponse,
