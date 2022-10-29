@@ -43,6 +43,11 @@ body {
 }
 
 body.noscroll {
-  padding-right: 15px;
   overflow: hidden;
+}
+
+@media (hover: hover) {
+  body.noscroll {
+    padding-right: 15px;
+  }
 }
