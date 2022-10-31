@@ -3,37 +3,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import styled from 'styled-components'
 
-import { ROUTES } from '@constants/routes.constants'
-import { NAVBAR_LIST } from '@constants/navbar.constants'
+import { BurgerMenu, NavMenu } from '@components/header'
 import logo from '@public/images/logo.png'
 
-interface IHeaderNavbarProps {
-  pathname?: string
-}
-
-const HeaderNavbar: FC<IHeaderNavbarProps> = ({ pathname }) => {
+const HeaderNavbar: FC = () => {
   return (
     <Wrapper>
-      <Link href={ROUTES.ROOT}>
+      <Link href="/">
         <a>
-          <Image src={logo} width={200} height={40} alt="Top Games Hub" />
+          <Image
+            src={logo}
+            width={200}
+            height={40}
+            quality={100}
+            alt="Top Games Hub"
+          />
         </a>
       </Link>
 
-      <div>
-        <BurgerMenu>MENU</BurgerMenu>
-        <NavList>
-          {NAVBAR_LIST.map(({ link, name }) => (
-            <Link href={link} key={name}>
-              <a>
-                <NavItem className={`${pathname === link ? 'active' : ''}`}>
-                  {name}
-                </NavItem>
-              </a>
-            </Link>
-          ))}
-        </NavList>
-      </div>
+      <BurgerMenu />
+      <NavMenu />
     </Wrapper>
   )
 }
@@ -75,36 +64,5 @@ const Wrapper = styled.div`
       rgba(27, 27, 27, 0) 0%,
       rgba(27, 27, 27, 0.8) 100%
     );
-  }
-`
-const BurgerMenu = styled.div`
-  @media (min-width: 1080px) {
-    display: none;
-  }
-`
-const NavList = styled.ul`
-  display: none;
-
-  @media (min-width: 1080px) {
-    display: flex;
-    align-items: center;
-    height: 100%;
-
-    a {
-      font-size: 18px;
-      color: #b3b1a9;
-    }
-  }
-`
-const NavItem = styled.li`
-  display: flex;
-  align-items: center;
-  padding: 0 8px;
-  height: 35px;
-  transition: background-color 0.3s;
-
-  :hover,
-  &.active {
-    background-color: rgba(226, 224, 208, 0.2);
   }
 `
