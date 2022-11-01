@@ -1,18 +1,18 @@
 import styled from 'styled-components'
 
-import { NavList } from '@components/header/index'
+import { NavItems } from '@components/header'
 
 const NavMenu = () => {
   return (
-    <List>
-      <NavList />
-    </List>
+    <NavList>
+      <NavItems />
+    </NavList>
   )
 }
 
 export default NavMenu
 
-const List = styled.ul`
+const NavList = styled.ul`
   display: none;
 
   @media (min-width: 1080px) {

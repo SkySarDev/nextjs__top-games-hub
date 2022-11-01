@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { useActiveClass } from '@hooks/useActiveClass'
-import { NavList } from '@components/header/index'
+import { NavItems } from '@components/header'
 
 const BurgerMenu = () => {
   const { isActive, toggleActiveClass } = useActiveClass('active', true)
@@ -9,9 +9,12 @@ const BurgerMenu = () => {
   return (
     <Wrapper>
       <BurgerBtn className={isActive} onClick={toggleActiveClass} />
-      <List className={isActive}>
-        <NavList />
-      </List>
+
+      <NavListWrapper className={isActive}>
+        <NavList>
+          <NavItems />
+        </NavList>
+      </NavListWrapper>
     </Wrapper>
   )
 }
@@ -56,34 +59,36 @@ const BurgerBtn = styled.button`
     :before {
       transform: translate(-50%, -50%) rotate(45deg);
     }
-
     :after {
       transform: translate(-50%, -50%) rotate(-45deg);
     }
   }
 `
-const List = styled.ul`
+const NavListWrapper = styled.div`
   position: absolute;
   right: 0;
   top: 55px;
   background-color: #1b1b1b;
   max-height: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   overflow: hidden;
 
+  @media (min-width: 1080px) {
+    display: none;
+  }
+
   &.active {
-    height: auto;
     max-height: 350px;
     box-shadow: 0 10px 15px 20px rgba(27, 27, 27, 0.5);
   }
+`
+const NavList = styled.ul`
+  padding-bottom: 5px;
+  border: 1px solid #59584c;
 
   a {
     font-size: 20px;
     color: #b3b1a9;
-  }
-
-  @media (min-width: 1080px) {
-    display: none;
   }
 
   li {

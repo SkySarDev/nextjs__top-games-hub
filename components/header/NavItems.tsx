@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import { NAV_LIST } from '@constants/navbar.constants'
 
-const NavList: FC = () => {
+const NavItems: FC = () => {
   const { pathname } = useRouter()
 
   return (
@@ -24,4 +24,4 @@ const NavList: FC = () => {
   )
 }
 
-export default NavList
+export default NavItems
