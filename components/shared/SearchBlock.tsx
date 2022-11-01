@@ -1,10 +1,15 @@
 import { ChangeEvent, FormEvent, useState, FC } from 'react'
 import { useRouter } from 'next/router'
+import { FaSearch } from 'react-icons/fa'
 import styled from 'styled-components'
 
 import { ROUTES } from '@constants/routes.constants'
 
-const SearchBlock: FC = () => {
+interface ISearchBlockProps {
+  showIcon?: boolean
+}
+
+const SearchBlock: FC<ISearchBlockProps> = ({ showIcon = false }) => {
   const router = useRouter()
   const [inputValue, setInputValue] = useState('')
 
@@ -30,9 +35,12 @@ const SearchBlock: FC = () => {
         value={inputValue}
         onChange={inputChangeHandler}
       />
-      <Button>
-        <ButtonImg src="/images/icons/search.svg" alt="Search" />
-      </Button>
+
+      {showIcon && (
+        <Button>
+          <FaSearch />
+        </Button>
+      )}
     </Form>
   )
 }
@@ -45,6 +53,8 @@ const Form = styled.form`
   align-items: center;
   column-gap: 10px;
   height: 35px;
+  font-size: 18px;
+  color: #999;
   border: 1px solid #59584c;
   padding: 0 10px;
   margin-bottom: 3px;
@@ -53,18 +63,14 @@ const Form = styled.form`
 const SearchInput = styled.input`
   width: 100%;
   height: 100%;
-  font-size: 18px;
   background-color: transparent;
-  color: #999;
 `
 const Button = styled.button`
   display: grid;
   justify-content: center;
   align-items: center;
   background-color: transparent;
-`
-const ButtonImg = styled.img`
-  width: 18px;
-  height: 18px;
+  color: #999;
   opacity: 0.7;
+  cursor: pointer;
 `

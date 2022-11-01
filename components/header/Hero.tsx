@@ -2,7 +2,7 @@ import { FC } from 'react'
 import styled from 'styled-components'
 
 import { DEFAULT_TITLE } from '@constants/common.constants'
-import { SearchBlock } from '@components/header'
+import { SearchBlock } from '@components/shared'
 
 interface IHeroProps {
   title?: string
@@ -14,7 +14,7 @@ const Hero: FC<IHeroProps> = ({ title = DEFAULT_TITLE }) => {
       <HeroTitle>{title}</HeroTitle>
 
       <HeroSearch>
-        <SearchBlock />
+        <SearchBlock showIcon />
       </HeroSearch>
     </Wrapper>
   )
