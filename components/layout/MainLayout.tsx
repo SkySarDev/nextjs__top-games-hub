@@ -2,9 +2,8 @@ import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
 import { IBgImage } from '@appTypes/base.types'
-import { MainHead } from '@components/layout/index'
+import { MainHead, Footer } from '@components/layout'
 import { HeaderNavbar, Hero, HeroBackground } from '@components/header'
-import { GameScreenshotModal } from '@components/pages/games'
 
 interface IMainLayoutProps extends PropsWithChildren {
   title?: string
@@ -25,7 +24,7 @@ const MainLayout: FC<IMainLayoutProps> = ({
       <MainHead title={title} description={description} />
 
       <Container>
-        <HeaderNavbar pathname={pathname} />
+        <HeaderNavbar />
         <HeroBackground
           image={bgImage?.image}
           blurDataURL={bgImage?.blurDataURL}
@@ -33,9 +32,9 @@ const MainLayout: FC<IMainLayoutProps> = ({
         <Hero title={title} />
 
         {children}
-      </Container>
 
-      <GameScreenshotModal />
+        <Footer />
+      </Container>
     </>
   )
 }
@@ -46,15 +45,15 @@ const Container = styled.div`
   width: 100%;
   max-width: 460px;
   margin: 0 auto;
-  padding: 0 10px 10px;
+  padding: 0 10px;
 
   @media (min-width: 768px) {
     max-width: 880px;
-    padding: 0 15px 15px;
+    padding: 0 15px;
   }
 
   @media (min-width: 1080px) {
     max-width: 1200px;
-    padding: 0 20px 20px;
+    padding: 0 20px;
   }
 `
