@@ -8,7 +8,7 @@ import {
 
 const CardGameSkeleton: FC = () => {
   return (
-    <CardBaseWrapper height={250}>
+    <CardBaseWrapper maxHeight={250} sizeRatio={0.7}>
       <Body>
         <Title>
           <SkeletonLine />
