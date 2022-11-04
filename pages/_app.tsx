@@ -11,11 +11,16 @@ import '@configs/nprogress.configs'
 import { IErrorResponse } from '@appTypes/base.types'
 import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
+import { Maintenance } from '@components/pages/common'
 import { ScreenshotModalProvider } from '@context/ScreenshotModal'
 import '@styles/globals.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(() => new QueryClient(queryClientConfig))
+
+  if (process.env.NEXT_PUBLIC_MAINTENANCE) {
+    return <Maintenance />
+  }
 
   if (pageProps.isError) {
     const error = pageProps.isError as IErrorResponse
