@@ -10,7 +10,7 @@ const HeaderNavbar: FC = () => {
   return (
     <Wrapper>
       <div>
-        <Link href="/">
+        <Link href="/" prefetch={false}>
           <a>
             <Image
               src={logo}

@@ -13,7 +13,7 @@ const NavItems: FC = () => {
         const isActive = pathname === link ? 'active' : ''
 
         return (
-          <Link href={link} key={name}>
+          <Link href={link} prefetch={false} key={name}>
             <a>
               <li className={isActive}>{name}</li>
             </a>
