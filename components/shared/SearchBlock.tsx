@@ -54,7 +54,6 @@ const Form = styled.form`
   column-gap: 10px;
   height: 35px;
   font-size: 18px;
-  color: #999;
   border: 1px solid #59584c;
   padding: 0 10px;
   margin-bottom: 3px;
@@ -63,6 +62,7 @@ const Form = styled.form`
 const SearchInput = styled.input`
   width: 100%;
   height: 100%;
+  color: #999;
   background-color: transparent;
 `
 const Button = styled.button`
