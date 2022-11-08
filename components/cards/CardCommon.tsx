@@ -17,7 +17,7 @@ const CardCommon: FC<ICardCommonProps> = ({
 }) => {
   return (
     <CardWrapper bgImage={image_background} maxHeight={220} sizeRatio={0.6}>
-      <Link href={`/${category}/${id}`}>
+      <Link href={`/${category}/${id}`} prefetch={false}>
         <a>
           <Body>
             <Title>{name}</Title>

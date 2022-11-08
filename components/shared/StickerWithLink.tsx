@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import Link from 'next/link'
 
-import Sticker, { IStickerProps } from 'components/shared/Sticker'
+import Sticker, { IStickerProps } from '@components/shared/Sticker'
 
 type WithLinkProps = IStickerProps & {
   link: string
@@ -23,7 +23,7 @@ const StickerWithLink: FC<StickerWithLinkProps> = ({
   return (
     <>
       {link && (
-        <Link href={link}>
+        <Link href={link} prefetch={false}>
           <a>
             <Sticker Icon={Icon} iconSize={iconSize}>
               {children}

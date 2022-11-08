@@ -17,7 +17,7 @@ const GameInfoPlatforms: FC<IGameInfoPlatformsProps> = ({ platforms }) => {
         const Icon = platformsIcons[slug]
 
         return (
-          <Link href={`${ROUTES.PLATFORMS}/${id}`} key={id}>
+          <Link href={`${ROUTES.PLATFORMS}/${id}`} prefetch={false} key={id}>
             <a>
               <Icon />
             </a>

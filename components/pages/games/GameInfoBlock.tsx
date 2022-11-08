@@ -25,7 +25,9 @@ const GameInfoBlock: FC<IGameInfoBlockProps> = ({
           <>
             {content.map(({ id, name }) => (
               <ArrayItem key={name}>
-                <Link href={`${queryParam}/${id}`}>{name}</Link>
+                <Link href={`${queryParam}/${id}`} prefetch={false}>
+                  {name}
+                </Link>
               </ArrayItem>
             ))}
           </>

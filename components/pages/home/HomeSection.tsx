@@ -13,7 +13,9 @@ const HomeSection: FC<IHomePageSectionProps> = ({ link, title, children }) => {
   return (
     <div>
       <Title>
-        <Link href={link}>{title}</Link>
+        <Link href={link} prefetch={false}>
+          {title}
+        </Link>
       </Title>
 
       <ContentGrid>{children}</ContentGrid>

@@ -20,7 +20,7 @@ const CardGame: FC<ICardGameProps> = ({
   return (
     <CardWrapper bgImage={background_image} maxHeight={250} sizeRatio={0.7}>
       <Body>
-        <Link href={`${ROUTES.GAMES}/${slug}`}>
+        <Link href={`${ROUTES.GAMES}/${slug}`} prefetch={false}>
           <a>
             <ContentGrid>
               <Rating>
@@ -34,7 +34,10 @@ const CardGame: FC<ICardGameProps> = ({
         <InfoRow>
           <GenresList genresList={genres} />
           {released && (
-            <Link href={`${ROUTES.RELEASE_CALENDAR}/${released}`}>
+            <Link
+              href={`${ROUTES.RELEASE_CALENDAR}/${released}`}
+              prefetch={false}
+            >
               {releaseDateShort}
             </Link>
           )}

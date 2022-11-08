@@ -20,7 +20,9 @@ const GenresList: FC<IGenresListProps> = ({ genresList }) => {
     >
       {genresList.map(({ id, name }) => (
         <div className={styles.genreItem} key={id}>
-          <Link href={`${ROUTES.GENRES}/${id}`}>{name}</Link>
+          <Link href={`${ROUTES.GENRES}/${id}`} prefetch={false}>
+            {name}
+          </Link>
         </div>
       ))}
     </TruncatedList>
