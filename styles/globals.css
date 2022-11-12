@@ -51,3 +51,18 @@ body.noscroll {
     padding-right: 15px;
   }
 }
+
+/* Customization nprogress */
+
+#nprogress {
+  position: relative;
+  z-index: 1000;
+}
+
+#nprogress .bar {
+  background: #d3cbc0;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px #d3cbc0, 0 0 5px #d3cbc0;
+}
