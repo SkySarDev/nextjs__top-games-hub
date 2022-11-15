@@ -60,9 +60,9 @@ body.noscroll {
 }
 
 #nprogress .bar {
-  background: #d3cbc0;
+  background: #d3cbc0 !important;
 }
 
 #nprogress .peg {
-  box-shadow: 0 0 10px #d3cbc0, 0 0 5px #d3cbc0;
+  box-shadow: 0 0 10px #d3cbc0, 0 0 5px #d3cbc0 !important;
 }
