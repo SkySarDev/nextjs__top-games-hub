@@ -2,7 +2,7 @@ import { FC, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 
 import { IBgImage } from '@appTypes/base.types'
-import { MainHead, Footer } from '@components/layout'
+import { MainHead, Footer, ButtonToTop } from '@components/layout'
 import { HeaderNavbar, Hero, HeroBackground } from '@components/header'
 
 interface IMainLayoutProps extends PropsWithChildren {
@@ -35,6 +35,8 @@ const MainLayout: FC<IMainLayoutProps> = ({
 
         <Footer />
       </Container>
+
+      <ButtonToTop />
     </>
   )
 }
