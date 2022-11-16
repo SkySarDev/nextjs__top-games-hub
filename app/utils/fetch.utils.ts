@@ -11,22 +11,25 @@ export const customFetchQuery = async (
   let isError = null
   let dehydratedState = null
   let bgImage = null
-  const queryClient = new QueryClient()
 
-  try {
-    await queryClient.fetchQuery(queryKey, queryFn)
-  } catch (err: any) {
-    isError = err as IErrorResponse
-  }
+  if (!process.env.NEXT_PUBLIC_MAINTENANCE) {
+    const queryClient = new QueryClient()
 
-  if (!isError) {
-    dehydratedState = dehydrate(queryClient)
-
-    const { background_image } = dehydratedState.queries[0].state.data as {
-      background_image: string | null | undefined
+    try {
+      await queryClient.fetchQuery(queryKey, queryFn)
+    } catch (err: any) {
+      isError = err as IErrorResponse
     }
 
-    bgImage = await getBgImage(background_image)
+    if (!isError) {
+      dehydratedState = dehydrate(queryClient)
+
+      const { background_image } = dehydratedState.queries[0].state.data as {
+        background_image: string | null | undefined
+      }
+
+      bgImage = await getBgImage(background_image)
+    }
   }
 
   return {
