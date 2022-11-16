@@ -9,14 +9,12 @@ interface IMainLayoutProps extends PropsWithChildren {
   title?: string
   description?: string
   bgImage?: IBgImage
-  pathname?: string
 }
 
 const MainLayout: FC<IMainLayoutProps> = ({
   title,
   description,
   bgImage,
-  pathname,
   children,
 }) => {
   return (

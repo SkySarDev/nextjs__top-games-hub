@@ -8,11 +8,9 @@ import { IPageWithBgImage } from '@appTypes/pages.types'
 import { MainLayout } from '@components/layout'
 import { ContentError } from '@components/content'
 import { GamesContent } from '@components/pages/games'
-import { useRouter } from 'next/router'
 
 const Games: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['games-page'], PagesServices.getGames)
-  const { pathname } = useRouter()
   const { list, nextPage, nextPageError, fetchNextPage } = useInfiniteData({
     initList: data?.games_list,
     initNextPage: data?.next_page,
@@ -23,7 +21,6 @@ const Games: NextPage<IPageWithBgImage> = ({ bgImage }) => {
       title={data?.title}
       description={data?.description}
       bgImage={bgImage}
-      pathname={pathname}
     >
       {data ? (
         <GamesContent

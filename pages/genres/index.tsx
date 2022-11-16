@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { customFetchQuery } from '@utils/fetch.utils'
@@ -13,7 +12,6 @@ import { CategoryListTemplate } from '@components/pages/common'
 
 const Genres: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['genres-page'], PagesServices.getGenres)
-  const { pathname } = useRouter()
   const { list, nextPage, nextPageError, fetchNextPage } =
     useInfiniteData<ICardCommon>({
       initList: data?.list,
@@ -24,7 +22,6 @@ const Genres: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     <MainLayout
       title={data?.title}
       description={data?.description}
-      pathname={pathname}
       bgImage={bgImage}
     >
       {data ? (

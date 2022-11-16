@@ -1,5 +1,4 @@
 import { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { useInfiniteData } from '@hooks/useInfiniteData'
@@ -16,7 +15,6 @@ const ReleaseCalendar: NextPage<IPageWithBgImage> = ({ bgImage }) => {
     ['release-calendar-page'],
     PagesServices.getReleaseCalendar
   )
-  const { pathname } = useRouter()
   const { list, nextPage, nextPageError, fetchNextPage } =
     useInfiniteData<ICardGame>({
       initList: data?.games_list,
@@ -28,7 +26,6 @@ const ReleaseCalendar: NextPage<IPageWithBgImage> = ({ bgImage }) => {
       title={data?.title}
       description={data?.description}
       bgImage={bgImage}
-      pathname={pathname}
     >
       {data ? (
         <GamesContent
