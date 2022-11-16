@@ -3,10 +3,17 @@ import styled from 'styled-components'
 const Footer = () => {
   return (
     <Wrapper>
-      <span>Database provided by</span>{' '}
-      <a href="https://rawg.io" target="_blank" rel="noreferrer">
-        RAWG.io
-      </a>
+      <p>
+        Developed by{' '}
+        <a href="https://skysar.tech" target="_blank" rel="noreferrer">
+          SkySar
+        </a>
+        .{'  '}
+        Database provided by{' '}
+        <a href="https://rawg.io" target="_blank" rel="noreferrer">
+          RAWG.io
+        </a>
+      </p>
     </Wrapper>
   )
 }
