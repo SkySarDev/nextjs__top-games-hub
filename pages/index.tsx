@@ -1,5 +1,4 @@
 import type { NextPage } from 'next'
-import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query'
 
 import { PagesServices } from '@services/pages.services'
@@ -11,14 +10,12 @@ import { HomeContent } from '@components/pages/home'
 
 const Home: NextPage<IPageWithBgImage> = ({ bgImage }) => {
   const { data } = useQuery(['home-page'], PagesServices.getHome)
-  const { pathname } = useRouter()
 
   return (
     <MainLayout
       title={data?.title}
       description={data?.description}
       bgImage={bgImage}
-      pathname={pathname}
     >
       {data ? (
         <HomeContent
