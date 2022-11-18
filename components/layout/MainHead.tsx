@@ -6,13 +6,13 @@ import { DEFAULT_TITLE } from '@constants/common.constants'
 interface IMainHeadProps {
   title?: string
   description?: string
-  noindex?: boolean
+  robots?: 'all' | 'none' | 'noindex' | 'nofollow'
 }
 
 const MainHead: FC<IMainHeadProps> = ({
   title,
   description,
-  noindex = false,
+  robots = 'none',
 }) => {
   const fullTitle = title ? `${title} - ${DEFAULT_TITLE}` : DEFAULT_TITLE
 
@@ -20,7 +20,7 @@ const MainHead: FC<IMainHeadProps> = ({
     <Head>
       <title>{fullTitle}</title>
       {description && <meta name="description" content={description} />}
-      {noindex && <meta name="robots" content="noindex" />}
+      <meta name="robots" content={robots} />
       <link rel="icon" href="/favicon.png" />
     </Head>
   )

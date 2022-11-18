@@ -5,7 +5,7 @@ import { MainHead } from '@components/layout'
 const Maintenance = () => {
   return (
     <>
-      <MainHead title="Maintenance" noindex />
+      <MainHead title="Maintenance" robots="noindex" />
 
       <Text>Sorry! We are under maintenance currently.</Text>
     </>
